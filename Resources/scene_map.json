@@ -1,0 +1,3052 @@
+{
+ "1": {
+  "name": "login",
+  "file": "scene_login",
+  "resId": 1
+ },
+ "7": {
+  "name": "Asteria Plains",
+  "file": "fld001",
+  "resId": 3
+ },
+ "8": {
+  "name": "Asterleeds",
+  "file": "cty001",
+  "resId": 4
+ },
+ "9": {
+  "name": "Bahamar Highlands",
+  "file": "fld002",
+  "resId": 29
+ },
+ "10": {
+  "name": "Montegnor Valley",
+  "file": "fld003",
+  "resId": 41
+ },
+ "11": {
+  "name": "Starland",
+  "file": "blueland001",
+  "resId": 38
+ },
+ "71": {
+  "name": "Duskdye Woods",
+  "file": "fld001_north",
+  "resId": 71
+ },
+ "72": {
+  "name": "Everfall Forest",
+  "file": "fld001_east",
+  "resId": 72
+ },
+ "73": {
+  "name": "Windhowl Canyon",
+  "file": "fld001_03_dragonscar",
+  "resId": 73
+ },
+ "74": {
+  "name": "Underground District",
+  "file": "fld001_04_underground",
+  "resId": 74
+ },
+ "75": {
+  "name": "Skimmer's Lair",
+  "file": "fld001_05_underwater",
+  "resId": 75
+ },
+ "76": {
+  "name": "Land of Crimson Illusion",
+  "file": "fld001_east_opendoor",
+  "resId": 76
+ },
+ "91": {
+  "name": "Sunken Corridor",
+  "file": "fld002_01_cave",
+  "resId": 91
+ },
+ "92": {
+  "name": "Gloomy Depths",
+  "file": "fld002_02_deepcave",
+  "resId": 92
+ },
+ "93": {
+  "name": "Moonshadow Wilds",
+  "file": "fld002_03_imaginedforest",
+  "resId": 93
+ },
+ "94": {
+  "name": "Stray Starway",
+  "file": "fld001_06_mistyforest",
+  "resId": 94
+ },
+ "95": {
+  "name": "Sunset Wilds",
+  "file": "fld002_00_colorfulforest",
+  "resId": 90
+ },
+ "1001": {
+  "name": "Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1002": {
+  "name": "Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1011": {
+  "name": "Unstable - Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1021": {
+  "name": "Unstable - Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1031": {
+  "name": "Chaotic - Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1032": {
+  "name": "Chaotic - Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1033": {
+  "name": "Chaotic - Tina's Mindrealm",
+  "file": "dng_main_1001_tina",
+  "resId": 5
+ },
+ "1101": {
+  "name": "Towering Ruin",
+  "file": "dng_main_1101_tower",
+  "resId": 6
+ },
+ "1102": {
+  "name": "Towering Ruin",
+  "file": "dng_main_1101_tower",
+  "resId": 6
+ },
+ "1111": {
+  "name": "Unstable - Towering Ruin",
+  "file": "dng_hero_1121_tower",
+  "resId": 7
+ },
+ "1112": {
+  "name": "Unstable - Towering Ruin",
+  "file": "dng_hero_1121_tower",
+  "resId": 7
+ },
+ "1121": {
+  "name": "Chaotic - Towering Ruin",
+  "file": "dng_hero_1121_tower",
+  "resId": 7
+ },
+ "1122": {
+  "name": "Chaotic - Towering Ruin",
+  "file": "dng_hero_1121_tower",
+  "resId": 7
+ },
+ "1123": {
+  "name": "Chaotic - Towering Ruin",
+  "file": "dng_hero_1121_tower",
+  "resId": 7
+ },
+ "1150": {
+  "name": "Chaotic - Towering Ruin",
+  "file": "dng_hero_1121_tower_s3",
+  "resId": 1150
+ },
+ "1151": {
+  "name": "Chaotic - Towering Ruin",
+  "file": "dng_hero_1121_tower_s3",
+  "resId": 1150
+ },
+ "1152": {
+  "name": "Chaotic - Towering Ruin",
+  "file": "dng_hero_1121_tower_s3",
+  "resId": 1150
+ },
+ "1153": {
+  "name": "Unstable - Towering Ruin",
+  "file": "dng_hero_1121_tower_s3",
+  "resId": 1150
+ },
+ "1154": {
+  "name": "Unstable - Towering Ruin",
+  "file": "dng_hero_1121_tower_s3",
+  "resId": 1150
+ },
+ "1201": {
+  "name": "Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1202": {
+  "name": "Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1211": {
+  "name": "Unstable - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1212": {
+  "name": "Unstable - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1221": {
+  "name": "Chaotic - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1222": {
+  "name": "Chaotic - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1223": {
+  "name": "Chaotic - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1231": {
+  "name": "Unstable - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1232": {
+  "name": "Unstable - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1233": {
+  "name": "Chaotic - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1234": {
+  "name": "Chaotic - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1235": {
+  "name": "Chaotic - Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "1301": {
+  "name": "Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1302": {
+  "name": "Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1311": {
+  "name": "Unstable - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1321": {
+  "name": "Unstable - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1331": {
+  "name": "Chaotic - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1332": {
+  "name": "Chaotic - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1333": {
+  "name": "Chaotic - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1399": {
+  "name": "Level quest test",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1401": {
+  "name": "Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1402": {
+  "name": "Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1403": {
+  "name": "Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1411": {
+  "name": "Unstable - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1412": {
+  "name": "Unstable - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1421": {
+  "name": "Chaotic - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1422": {
+  "name": "Chaotic - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1423": {
+  "name": "Chaotic - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1501": {
+  "name": "Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1502": {
+  "name": "Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1511": {
+  "name": "Unstable - Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1521": {
+  "name": "Unstable - Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1531": {
+  "name": "Chaotic - Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1532": {
+  "name": "Chaotic - Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1533": {
+  "name": "Chaotic - Rock Serpent Lair",
+  "file": "dng_main_1501_minehole",
+  "resId": 34
+ },
+ "1611": {
+  "name": "Unstable - Tina's Mindrealm",
+  "file": "dng_main_1001_tina_s3",
+  "resId": 1611
+ },
+ "1621": {
+  "name": "Unstable - Tina's Mindrealm",
+  "file": "dng_main_1001_tina_s3",
+  "resId": 1611
+ },
+ "1631": {
+  "name": "Chaotic - Tina's Mindrealm",
+  "file": "dng_main_1001_tina_s3",
+  "resId": 1611
+ },
+ "1632": {
+  "name": "Chaotic - Tina's Mindrealm",
+  "file": "dng_main_1001_tina_s3",
+  "resId": 1611
+ },
+ "1633": {
+  "name": "Chaotic - Tina's Mindrealm",
+  "file": "dng_main_1001_tina_s3",
+  "resId": 1611
+ },
+ "5000": {
+  "name": "Content mechanism test scene",
+  "file": "cty001",
+  "resId": 4
+ },
+ "5002": {
+  "name": "Sea of Origin",
+  "file": "dng_main_5002_engramsea",
+  "resId": 40
+ },
+ "5033": {
+  "name": "Tower Ruins",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "5200": {
+  "name": "Lamond's Office",
+  "file": "cty001_interior_001",
+  "resId": 21
+ },
+ "5206": {
+  "name": "Asterleeds",
+  "file": "cty001_interior_002",
+  "resId": 9
+ },
+ "5211": {
+  "name": "Lamond's Office",
+  "file": "cty001_interior_001",
+  "resId": 21
+ },
+ "5220": {
+  "name": "Sea Cruise",
+  "file": "cty001_interior_003",
+  "resId": 5220
+ },
+ "5401": {
+  "name": "Kanamia Forest",
+  "file": "fld001_interior_001",
+  "resId": 5401
+ },
+ "5403": {
+  "name": "Kanamia Brave Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "5501": {
+  "name": "Dragon Claw Valley",
+  "file": "dng_main_1201_dragonscar",
+  "resId": 26
+ },
+ "5602": {
+  "name": "Fafala's Home",
+  "file": "fld002_interior_001",
+  "resId": 5602
+ },
+ "5603": {
+  "name": "Fafala's Home",
+  "file": "fld002_interior_001",
+  "resId": 5602
+ },
+ "5604": {
+  "name": "Fafala's Home",
+  "file": "fld002_interior_001",
+  "resId": 5602
+ },
+ "5811": {
+  "name": "Smelting Furnace Pipes",
+  "file": "fld002_interior_002",
+  "resId": 5811
+ },
+ "5812": {
+  "name": "Frostjade Staff",
+  "file": "dng_raid_001",
+  "resId": 13001
+ },
+ "5813": {
+  "name": "Ruins Deep Within the Mine",
+  "file": "dng_branch_6521_factory",
+  "resId": 6521
+ },
+ "5900": {
+  "name": "Sea-Ringed Reef",
+  "file": "dng_branch_6561_coral",
+  "resId": 6561
+ },
+ "5910": {
+  "name": "Cursed Radiant Tomb",
+  "file": "dng_branch_6501_godvault",
+  "resId": 6511
+ },
+ "5901": {
+  "name": "Mistveil Hunting Ground",
+  "file": "dng_branch_6541_beast",
+  "resId": 6541
+ },
+ "6001": {
+  "name": "Hero Instance Test Scenario",
+  "file": "test3c",
+  "resId": 12
+ },
+ "6005": {
+  "name": "Unstable - Goblin Lair",
+  "file": "dng_branch_6001_goblin",
+  "resId": 28
+ },
+ "6006": {
+  "name": "Unstable - Goblin Lair",
+  "file": "dng_branch_6001_goblin",
+  "resId": 28
+ },
+ "6007": {
+  "name": "Chaotic - Goblin Lair",
+  "file": "dng_branch_6001_goblin",
+  "resId": 28
+ },
+ "6008": {
+  "name": "Chaotic - Goblin Lair",
+  "file": "dng_branch_6001_goblin",
+  "resId": 28
+ },
+ "6009": {
+  "name": "Chaotic - Goblin Lair",
+  "file": "dng_branch_6001_goblin",
+  "resId": 28
+ },
+ "6011": {
+  "name": "Unstable - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6012": {
+  "name": "Unstable - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6021": {
+  "name": "Chaotic - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6022": {
+  "name": "Chaotic - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6023": {
+  "name": "Chaotic - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6031": {
+  "name": "Unstable - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6032": {
+  "name": "Unstable - Kanamia Trial",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "6040": {
+  "name": "Verdant Embrace of Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6041": {
+  "name": "Unstable - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6042": {
+  "name": "Unstable - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6043": {
+  "name": "Chaotic - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6044": {
+  "name": "Chaotic - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6045": {
+  "name": "Chaotic - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6111": {
+  "name": "Unstable - Wraith Shrine",
+  "file": "dng_branch_6101_carniman",
+  "resId": 35
+ },
+ "6112": {
+  "name": "Unstable - Wraith Shrine",
+  "file": "dng_branch_6101_carniman",
+  "resId": 35
+ },
+ "6121": {
+  "name": "Chaotic - Wraith Shrine",
+  "file": "dng_branch_6101_carniman",
+  "resId": 35
+ },
+ "6122": {
+  "name": "Chaotic - Wraith Shrine",
+  "file": "dng_branch_6101_carniman",
+  "resId": 35
+ },
+ "6123": {
+  "name": "Chaotic - Wraith Shrine",
+  "file": "dng_branch_6101_carniman",
+  "resId": 35
+ },
+ "6211": {
+  "name": "Unstable - Depths of Decay",
+  "file": "dng_branch_6051_ponponhallway",
+  "resId": 6051
+ },
+ "6212": {
+  "name": "Unstable - Depths of Decay",
+  "file": "dng_branch_6051_ponponhallway",
+  "resId": 6051
+ },
+ "6221": {
+  "name": "Chaotic - Depths of Decay",
+  "file": "dng_branch_6051_ponponhallway",
+  "resId": 6051
+ },
+ "6222": {
+  "name": "Chaotic - Depths of Decay",
+  "file": "dng_branch_6051_ponponhallway",
+  "resId": 6051
+ },
+ "6223": {
+  "name": "Chaotic - Depths of Decay",
+  "file": "dng_branch_6051_ponponhallway",
+  "resId": 6051
+ },
+ "6311": {
+  "name": "Unstable - Devourer Cage",
+  "file": "dng_branch_6011_nolightcage",
+  "resId": 37
+ },
+ "6321": {
+  "name": "Unstable - Devourer Cage",
+  "file": "dng_branch_6011_nolightcage",
+  "resId": 37
+ },
+ "6331": {
+  "name": "Chaotic - Devourer Cage",
+  "file": "dng_branch_6011_nolightcage",
+  "resId": 37
+ },
+ "6332": {
+  "name": "Chaotic - Devourer Cage",
+  "file": "dng_branch_6011_nolightcage",
+  "resId": 37
+ },
+ "6333": {
+  "name": "Chaotic - Devourer Cage",
+  "file": "dng_branch_6011_nolightcage",
+  "resId": 37
+ },
+ "6411": {
+  "name": "Unstable - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6412": {
+  "name": "Unstable - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6421": {
+  "name": "Chaotic - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6422": {
+  "name": "Chaotic - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6423": {
+  "name": "Chaotic - Soundless City",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "6521": {
+  "name": "Chaotic - Mech Facility",
+  "file": "dng_branch_6521_factory",
+  "resId": 6521
+ },
+ "6522": {
+  "name": "Chaotic - Mech Facility",
+  "file": "dng_branch_6521_factory",
+  "resId": 6521
+ },
+ "6523": {
+  "name": "Chaotic - Mech Facility",
+  "file": "dng_branch_6521_factory",
+  "resId": 6521
+ },
+ "6524": {
+  "name": "Chaotic - Mech Facility",
+  "file": "dng_branch_6521_factory",
+  "resId": 6521
+ },
+ "6525": {
+  "name": "Chaotic - Mech Facility",
+  "file": "dng_branch_6521_factory",
+  "resId": 6521
+ },
+ "6511": {
+  "name": "Unstable Space - Cursed Radiant Tomb",
+  "file": "dng_branch_6501_godvault",
+  "resId": 6511
+ },
+ "6512": {
+  "name": "Unstable Space - Cursed Radiant Tomb",
+  "file": "dng_branch_6501_godvault",
+  "resId": 6511
+ },
+ "6513": {
+  "name": "Cursed Radiant Tomb",
+  "file": "dng_branch_6501_godvault",
+  "resId": 6511
+ },
+ "6541": {
+  "name": "Unstable Space - Mistveil Hunting Ground",
+  "file": "dng_branch_6541_beast",
+  "resId": 6541
+ },
+ "6514": {
+  "name": "Cursed Radiant Tomb",
+  "file": "dng_branch_6501_godvault",
+  "resId": 6511
+ },
+ "6542": {
+  "name": "Unstable Space - Mistveil Hunting Ground",
+  "file": "dng_branch_6541_beast",
+  "resId": 6541
+ },
+ "6515": {
+  "name": "Cursed Radiant Tomb",
+  "file": "dng_branch_6501_godvault",
+  "resId": 6511
+ },
+ "6543": {
+  "name": "Chaotic - Mistveil Hunting Ground",
+  "file": "dng_branch_6541_beast",
+  "resId": 6541
+ },
+ "6544": {
+  "name": "Chaotic - Mistveil Hunting Ground",
+  "file": "dng_branch_6541_beast",
+  "resId": 6541
+ },
+ "6545": {
+  "name": "Chaotic - Mistveil Hunting Ground",
+  "file": "dng_branch_6541_beast",
+  "resId": 6541
+ },
+ "6561": {
+  "name": "Unstable Space - Sea-Ringed Reef",
+  "file": "dng_branch_6561_coral",
+  "resId": 6561
+ },
+ "6562": {
+  "name": "Unstable Space - Sea-Ringed Reef",
+  "file": "dng_branch_6561_coral",
+  "resId": 6561
+ },
+ "6563": {
+  "name": "Chaotic - Sea-Ringed Reef",
+  "file": "dng_branch_6561_coral",
+  "resId": 6561
+ },
+ "6564": {
+  "name": "Chaotic - Sea-Ringed Reef",
+  "file": "dng_branch_6561_coral",
+  "resId": 6561
+ },
+ "6565": {
+  "name": "Chaotic - Sea-Ringed Reef",
+  "file": "dng_branch_6561_coral",
+  "resId": 6561
+ },
+ "7001": {
+  "name": "Parkour",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7002": {
+  "name": "Parkour",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7003": {
+  "name": "Wasteland Race",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7004": {
+  "name": "City Rally",
+  "file": "cty001",
+  "resId": 4
+ },
+ "7050": {
+  "name": "Goblin Rampage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7051": {
+  "name": "Goblin Rampage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7052": {
+  "name": "Goblin Rampage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7053": {
+  "name": "Goblin Rampage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7054": {
+  "name": "Goblin Rampage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7055": {
+  "name": "Defeat the Goblin Mage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7056": {
+  "name": "Defeat the Goblin Mage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7057": {
+  "name": "Defeat the Goblin Mage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7058": {
+  "name": "Defeat the Goblin Mage",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7060": {
+  "name": "Canyon Battle",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7061": {
+  "name": "Canyon Battle",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7065": {
+  "name": "Urgent Delivery",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7070": {
+  "name": "Light Bridge",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7071": {
+  "name": "Light Bridge",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7072": {
+  "name": "Light Bridge",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7073": {
+  "name": "Light Bridge",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7075": {
+  "name": "Demi-Human Q&A",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7076": {
+  "name": "Demi-Human Q&A",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7077": {
+  "name": "Demi-Human Q&A",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7080": {
+  "name": "Wind Turbulence",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7085": {
+  "name": "Boars Run",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7090": {
+  "name": "Suppress the Eruption",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7095": {
+  "name": "Spider Mine",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "7101": {
+  "name": "Aerial Patrol",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7102": {
+  "name": "Aerial Patrol",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7103": {
+  "name": "Aerial Patrol",
+  "file": "fld001",
+  "resId": 3
+ },
+ "7150": {
+  "name": "World Dominator",
+  "file": "dng_worldboss_001",
+  "resId": 7150
+ },
+ "7151": {
+  "name": "World Dominator",
+  "file": "dng_worldboss_001",
+  "resId": 7150
+ },
+ "7152": {
+  "name": "World Dominator",
+  "file": "dng_worldboss_001",
+  "resId": 7150
+ },
+ "8001": {
+  "name": "Village Defense Battle",
+  "file": "fld002",
+  "resId": 29
+ },
+ "8002": {
+  "name": "Golem Arena",
+  "file": "dng_dmj_009",
+  "resId": 8002
+ },
+ "8005": {
+  "name": "Urgent Delivery",
+  "file": "fld002",
+  "resId": 29
+ },
+ "8006": {
+  "name": "Urgent Delivery",
+  "file": "fld002",
+  "resId": 29
+ },
+ "8020": {
+  "name": "Demi-Human Duel",
+  "file": "fld002",
+  "resId": 29
+ },
+ "8051": {
+  "name": "Toxic Mire Breach",
+  "file": "dng_dmj_009",
+  "resId": 8002
+ },
+ "8052": {
+  "name": "Rift of Chaos",
+  "file": "dng_dmj_009",
+  "resId": 8002
+ },
+ "8053": {
+  "name": "Wasteland",
+  "file": "dng_worldboss_003",
+  "resId": 7152
+ },
+ "8054": {
+  "name": "Wasteland",
+  "file": "dng_worldboss_003",
+  "resId": 7152
+ },
+ "8021": {
+  "name": "Demi-Human Duel",
+  "file": "fld002",
+  "resId": 29
+ },
+ "9000": {
+  "name": "Spider Mine",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "9001": {
+  "name": "Balloon Capture",
+  "file": "cty001",
+  "resId": 4
+ },
+ "9002": {
+  "name": "Defeat the Year Demon",
+  "file": "fld001",
+  "resId": 3
+ },
+ "9200": {
+  "name": "Dragon Shackles: Adept's Trial",
+  "file": "arn001",
+  "resId": 33
+ },
+ "9201": {
+  "name": "Loom of Dreams​",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
+ "9202": {
+  "name": "Slumberdream Valley",
+  "file": "fld002_03_imaginedforest",
+  "resId": 93
+ },
+ "9203": {
+  "name": "Slumberdream Valley",
+  "file": "fld002_03_imaginedforest",
+  "resId": 93
+ },
+ "9204": {
+  "name": "Slumberdream Valley",
+  "file": "fld002_03_imaginedforest",
+  "resId": 93
+ },
+ "9205": {
+  "name": "Illusion-Shroud Woods",
+  "file": "fld002_00_colorfulforest",
+  "resId": 90
+ },
+ "9206": {
+  "name": "Illusion-Shroud Woods",
+  "file": "fld002_00_colorfulforest",
+  "resId": 90
+ },
+ "9207": {
+  "name": "Illusion-Shroud Woods",
+  "file": "fld002_00_colorfulforest",
+  "resId": 90
+ },
+ "10001": {
+  "name": "Square Practice Field 1",
+  "file": "testdng001",
+  "resId": 10
+ },
+ "10002": {
+  "name": "Square Practice Field 2",
+  "file": "testdng001",
+  "resId": 10
+ },
+ "10003": {
+  "name": "Test Dynamic Scene 1 (Copy)",
+  "file": "testdng001",
+  "resId": 10
+ },
+ "10004": {
+  "name": "Test Dynamic Scene 2 (Copy)",
+  "file": "testdng001",
+  "resId": 10
+ },
+ "10005": {
+  "name": "Test Logic Special Copy",
+  "file": "testdng001",
+  "resId": 10
+ },
+ "10010": {
+  "name": "3C Test Scene",
+  "file": "test3c",
+  "resId": 12
+ },
+ "10020": {
+  "name": "Performance Test Scene 1",
+  "file": "cs_fashion_suit01",
+  "resId": 10020
+ },
+ "10021": {
+  "name": "Performance Test Scene 2",
+  "file": "cs_fashion_suit02",
+  "resId": 10021
+ },
+ "11001": {
+  "name": "Wondrous Tag",
+  "file": "gameplay_hideseek_001",
+  "resId": 11001
+ },
+ "11002": {
+  "name": "Wondrous Tag",
+  "file": "gameplay_hideseek_002",
+  "resId": 11002
+ },
+ "10030": {
+  "name": "Zone Test Scene",
+  "file": "testdng001",
+  "resId": 10
+ },
+ "12000": {
+  "name": "Guild Center",
+  "file": "union_001",
+  "resId": 30
+ },
+ "12011": {
+  "name": "Guild Hunt - Hard",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "12012": {
+  "name": "Guild Hunt - Normal",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "12013": {
+  "name": "Guild Hunt - Easy",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "12014": {
+  "name": "Guild Hunt - Normal",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12015": {
+  "name": "Guild Hunt - Hard",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12016": {
+  "name": "Devourer Cage Sharing",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "12017": {
+  "name": "Devourer Cage Sharing",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "12018": {
+  "name": "Guild Hunt - Normal",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12019": {
+  "name": "Guild Hunt - Hard",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12022": {
+  "name": "Guild Hunt - Normal",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12023": {
+  "name": "Guild Hunt - Hard",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12030": {
+  "name": "Ee-chan's Story",
+  "file": "union_activity_001",
+  "resId": 1500
+ },
+ "12040": {
+  "name": "Guild Party",
+  "file": "union_activity_001",
+  "resId": 1500
+ },
+ "12050": {
+  "name": "Giant Golem Crusade",
+  "file": "dng_worldboss_002",
+  "resId": 7151
+ },
+ "12051": {
+  "name": "Giant Golem Crusade",
+  "file": "dng_worldboss_002",
+  "resId": 7151
+ },
+ "12052": {
+  "name": "Giant Golem Crusade",
+  "file": "dng_worldboss_002",
+  "resId": 7151
+ },
+ "12100": {
+  "name": "Echoing Dungeon",
+  "file": "dng_dmj_009",
+  "resId": 8002
+ },
+ "13001": {
+  "name": "Clash! Floating Island - Dragon Shackles",
+  "file": "dng_raid_001",
+  "resId": 13001
+ },
+ "13002": {
+  "name": "Brutal! Floating Island - Dragon Shackles",
+  "file": "dng_raid_001",
+  "resId": 13001
+ },
+ "13003": {
+  "name": "Purge! Floating Island - Dragon Shackles",
+  "file": "dng_raid_001",
+  "resId": 13001
+ },
+ "13011": {
+  "name": "Clash! Dreambloom Ruins",
+  "file": "dng_raid_002",
+  "resId": 13011
+ },
+ "13012": {
+  "name": "Brutal! Dreambloom Ruins",
+  "file": "dng_raid_002",
+  "resId": 13011
+ },
+ "13013": {
+  "name": "Purge! Dreambloom Ruins",
+  "file": "dng_raid_002",
+  "resId": 13011
+ },
+ "13021": {
+  "name": "Clash! Field of Forgotten Illusions",
+  "file": "dng_raid_003",
+  "resId": 13021
+ },
+ "13022": {
+  "name": "Brutal! Field of Forgotten Illusions",
+  "file": "dng_raid_003",
+  "resId": 13021
+ },
+ "13023": {
+  "name": "Purge! Field of Forgotten Illusions",
+  "file": "dng_raid_003",
+  "resId": 13021
+ },
+ "15001": {
+  "name": "Memory 1",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15002": {
+  "name": "Memory 13",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "15003": {
+  "name": "Memory 9",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "15004": {
+  "name": "Memory 7",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15005": {
+  "name": "Memory 31",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "15006": {
+  "name": "Memory 32",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15007": {
+  "name": "Memory 18",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "15008": {
+  "name": "Memory 22",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "15009": {
+  "name": "Memory 24",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15010": {
+  "name": "Memory 48",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15011": {
+  "name": "Memory 16",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "15012": {
+  "name": "Memory 42",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "15501": {
+  "name": "Memory 3",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "15502": {
+  "name": "Memory 49",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15503": {
+  "name": "Memory 23",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "15504": {
+  "name": "Memory 15",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "15505": {
+  "name": "Memory 50",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "15506": {
+  "name": "Memory 30",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15507": {
+  "name": "Memory 45",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "15508": {
+  "name": "Memory 40",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "16001": {
+  "name": "Memory 2",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "16002": {
+  "name": "Memory 14",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "16003": {
+  "name": "Memory 20",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "16004": {
+  "name": "Memory 36",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "16005": {
+  "name": "Great Dungeon Survival Verification Template",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "16006": {
+  "name": "Great Dungeon Survival Verification Template",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "16501": {
+  "name": "Memory 4",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "16502": {
+  "name": "Memory 34",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "16503": {
+  "name": "Memory 41",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "16504": {
+  "name": "Memory 28",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "17001": {
+  "name": "Memory 38",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17002": {
+  "name": "Memory 46",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17003": {
+  "name": "Memory 11",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17004": {
+  "name": "Memory 17",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17501": {
+  "name": "Memory 35",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17502": {
+  "name": "Memory 26",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17503": {
+  "name": "Memory 47",
+  "file": "dng_dmj_002_mp",
+  "resId": 17
+ },
+ "17504": {
+  "name": "Memory 10",
+  "file": "dng_dmj_005_mp",
+  "resId": 25
+ },
+ "17505": {
+  "name": "Memory 19",
+  "file": "dng_branch_6041_andraruins",
+  "resId": 24
+ },
+ "18001": {
+  "name": "Memory 6",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "18002": {
+  "name": "Memory 21",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "18003": {
+  "name": "Memory 44",
+  "file": "dng_dmj_008",
+  "resId": 23
+ },
+ "18004": {
+  "name": "Memory 39",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "18501": {
+  "name": "Memory 8",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "18502": {
+  "name": "Memory 27",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "18503": {
+  "name": "Memory 43",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "18504": {
+  "name": "Memory 37",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "19001": {
+  "name": "Memory 5",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "19002": {
+  "name": "Memory 12",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "19003": {
+  "name": "Memory 25",
+  "file": "dng_dmj_008",
+  "resId": 23
+ },
+ "19004": {
+  "name": "Memory 29",
+  "file": "dng_dmj_003",
+  "resId": 16
+ },
+ "19005": {
+  "name": "Memory 33",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "20101": {
+  "name": "Guardian 1",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "20102": {
+  "name": "Guardian 10",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "20201": {
+  "name": "Guardian 2",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "20202": {
+  "name": "Guardian 22",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "20301": {
+  "name": "Guardian 4",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "20302": {
+  "name": "Guardian 13",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "20303": {
+  "name": "Guardian 25",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "20401": {
+  "name": "Guardian 5",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "20402": {
+  "name": "Guardian 16",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "20501": {
+  "name": "Guardian 7",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "20502": {
+  "name": "Guardian 19",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "20701": {
+  "name": "Guardian 14",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "20702": {
+  "name": "Guardian 20",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "20801": {
+  "name": "Guardian 8",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "20802": {
+  "name": "Guardian 17",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "20803": {
+  "name": "Guardian 26",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "21201": {
+  "name": "Guardian 23",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "21202": {
+  "name": "Guardian 29",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "21301": {
+  "name": "Guardian 6",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "21302": {
+  "name": "Guardian 12",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "21303": {
+  "name": "Guardian 18",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "21304": {
+  "name": "Guardian 24",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "21305": {
+  "name": "Guardian 30",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "21306": {
+  "name": "Guardian 3",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "21307": {
+  "name": "Guardian 9",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "21308": {
+  "name": "Guardian 15",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "21309": {
+  "name": "Guardian 21",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "21310": {
+  "name": "Guardian 27",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "21401": {
+  "name": "Guardian 11",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "21402": {
+  "name": "Guardian 28",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "22101": {
+  "name": "Attack 17",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "22201": {
+  "name": "Attack 10",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "22202": {
+  "name": "Attack 23",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "22301": {
+  "name": "Attack 11",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "22401": {
+  "name": "Attack 13",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "22402": {
+  "name": "Attack 19",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "22501": {
+  "name": "Attack 6",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "22502": {
+  "name": "Attack 12",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "22503": {
+  "name": "Attack 18",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "22504": {
+  "name": "Attack 24",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "22505": {
+  "name": "Attack 30",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "22601": {
+  "name": "Attack 7",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "22602": {
+  "name": "Attack 14",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "22701": {
+  "name": "Attack 8",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "22702": {
+  "name": "Attack 26",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "23101": {
+  "name": "Attack 3",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "23102": {
+  "name": "Attack 9",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "23103": {
+  "name": "Attack 15",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "23104": {
+  "name": "Attack 21",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "23105": {
+  "name": "Attack 27",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "23201": {
+  "name": "Attack 4",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "23301": {
+  "name": "Attack 1",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "23302": {
+  "name": "Attack 20",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "23401": {
+  "name": "Attack 2",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "23501": {
+  "name": "Attack 5",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "23502": {
+  "name": "Attack 25",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "23601": {
+  "name": "Attack 16",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "23602": {
+  "name": "Attack 28",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "23701": {
+  "name": "Attack 22",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "23702": {
+  "name": "Attack 29",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "24101": {
+  "name": "Support 3",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24102": {
+  "name": "Support 6",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24103": {
+  "name": "Support 9",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24104": {
+  "name": "Support 12",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24105": {
+  "name": "Support 15",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24106": {
+  "name": "Support 18",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24107": {
+  "name": "Support 21",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24108": {
+  "name": "Support 24",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24109": {
+  "name": "Support 27",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24110": {
+  "name": "Support 30",
+  "file": "dng_dmj_001",
+  "resId": 14
+ },
+ "24201": {
+  "name": "Support 2",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "24202": {
+  "name": "Support 10",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "24203": {
+  "name": "Support 17",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "24204": {
+  "name": "Support 25",
+  "file": "dng_dmj_002",
+  "resId": 15
+ },
+ "24301": {
+  "name": "Support 5",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "24302": {
+  "name": "Support 14",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "24303": {
+  "name": "Support 20",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "24304": {
+  "name": "Support 29",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "24401": {
+  "name": "Support 4",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "24402": {
+  "name": "Support 11",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "24403": {
+  "name": "Support 19",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "24404": {
+  "name": "Support 23",
+  "file": "dng_dmj_005",
+  "resId": 19
+ },
+ "24501": {
+  "name": "Support 7",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "24502": {
+  "name": "Support 16",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "24503": {
+  "name": "Support 22",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "24504": {
+  "name": "Support 28",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "24601": {
+  "name": "Support 1",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "24602": {
+  "name": "Support 8",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "24603": {
+  "name": "Support 13",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "24604": {
+  "name": "Support 26",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "24650": {
+  "name": "Guardian 31",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "24651": {
+  "name": "Attack 31",
+  "file": "dng_dmj_006",
+  "resId": 20
+ },
+ "24652": {
+  "name": "Support 31",
+  "file": "dng_dmj_007",
+  "resId": 22
+ },
+ "30001": {
+  "name": "Homestead Courtyard",
+  "file": "home_system_outdoor_001",
+  "resId": 30001
+ },
+ "30101": {
+  "name": "Stimen Vaults Floor 1",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30102": {
+  "name": "Stimen Vaults Floor 2",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30103": {
+  "name": "Stimen Vaults Floor 3",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30104": {
+  "name": "Stimen Vaults Floor 4",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30105": {
+  "name": "Stimen Vaults Floor 5",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30106": {
+  "name": "Stimen Vaults Floor 6",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30107": {
+  "name": "Stimen Vaults Floor 7",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30108": {
+  "name": "Stimen Vaults Floor 8",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30109": {
+  "name": "Stimen Vaults Floor 9",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30110": {
+  "name": "Stimen Vaults Floor 10",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30111": {
+  "name": "Stimen Vaults Floor 11",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30112": {
+  "name": "Stimen Vaults Floor 12",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30113": {
+  "name": "Stimen Vaults Floor 13",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30114": {
+  "name": "Stimen Vaults Floor 14",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30115": {
+  "name": "Stimen Vaults Floor 15",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30116": {
+  "name": "Stimen Vaults Floor 16",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30117": {
+  "name": "Stimen Vaults Floor 17",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30118": {
+  "name": "Stimen Vaults Floor 18",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30119": {
+  "name": "Stimen Vaults Floor 19",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30120": {
+  "name": "Stimen Vaults Floor 20",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30121": {
+  "name": "Stimen Vaults Floor 21",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30122": {
+  "name": "Stimen Vaults Floor 22",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30123": {
+  "name": "Stimen Vaults Floor 23",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30124": {
+  "name": "Stimen Vaults Floor 24",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30125": {
+  "name": "Stimen Vaults Floor 25",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30126": {
+  "name": "Stimen Vaults Floor 26",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30127": {
+  "name": "Stimen Vaults Floor 27",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30128": {
+  "name": "Stimen Vaults Floor 28",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30129": {
+  "name": "Stimen Vaults Floor 29",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30130": {
+  "name": "Stimen Vaults Floor 30",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30131": {
+  "name": "Stimen Vaults Floor 31",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30132": {
+  "name": "Stimen Vaults Floor 32",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30133": {
+  "name": "Stimen Vaults Floor 33",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30134": {
+  "name": "Stimen Vaults Floor 34",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30135": {
+  "name": "Stimen Vaults Floor 35",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30136": {
+  "name": "Stimen Vaults Floor 36",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30137": {
+  "name": "Stimen Vaults Floor 37",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30138": {
+  "name": "Stimen Vaults Floor 38",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30139": {
+  "name": "Stimen Vaults Floor 39",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30140": {
+  "name": "Stimen Vaults Floor 40",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30141": {
+  "name": "Stimen Vaults Floor 41",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30142": {
+  "name": "Stimen Vaults Floor 42",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30143": {
+  "name": "Stimen Vaults Floor 43",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30144": {
+  "name": "Stimen Vaults Floor 44",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30145": {
+  "name": "Stimen Vaults Floor 45",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30146": {
+  "name": "Stimen Vaults Floor 46",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30147": {
+  "name": "Stimen Vaults Floor 47",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30148": {
+  "name": "Stimen Vaults Floor 48",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30149": {
+  "name": "Stimen Vaults Floor 49",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30150": {
+  "name": "Stimen Vaults Floor 50",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30151": {
+  "name": "Stimen Vaults Floor 51",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30152": {
+  "name": "Stimen Vaults Floor 52",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30153": {
+  "name": "Stimen Vaults Floor 53",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30154": {
+  "name": "Stimen Vaults Floor 54",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30155": {
+  "name": "Stimen Vaults Floor 55",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30156": {
+  "name": "Stimen Vaults Floor 56",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30157": {
+  "name": "Stimen Vaults Floor 57",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30158": {
+  "name": "Stimen Vaults Floor 58",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30159": {
+  "name": "Stimen Vaults Floor 59",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30160": {
+  "name": "Stimen Vaults Floor 60",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30161": {
+  "name": "Stimen Vaults Floor 61",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30162": {
+  "name": "Stimen Vaults Floor 62",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30163": {
+  "name": "Stimen Vaults Floor 63",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30164": {
+  "name": "Stimen Vaults Floor 64",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30165": {
+  "name": "Stimen Vaults Floor 65",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30166": {
+  "name": "Stimen Vaults Floor 66",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30167": {
+  "name": "Stimen Vaults Floor 67",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30168": {
+  "name": "Stimen Vaults Floor 68",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30169": {
+  "name": "Stimen Vaults Floor 69",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30170": {
+  "name": "Stimen Vaults Floor 70",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30171": {
+  "name": "Stimen Vaults Floor 71",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30172": {
+  "name": "Stimen Vaults Floor 72",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30173": {
+  "name": "Stimen Vaults Floor 73",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30174": {
+  "name": "Stimen Vaults Floor 74",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "30175": {
+  "name": "Stimen Vaults Floor 75",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "30200": {
+  "name": "Stimen Vaults Floor 75",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31101": {
+  "name": "Stimen Vaults Floor 1",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31102": {
+  "name": "Stimen Vaults Floor 2",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31103": {
+  "name": "Stimen Vaults Floor 3",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31104": {
+  "name": "Stimen Vaults Floor 4",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31105": {
+  "name": "Stimen Vaults Floor 5",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31106": {
+  "name": "Stimen Vaults Floor 6",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31107": {
+  "name": "Stimen Vaults Floor 7",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31108": {
+  "name": "Stimen Vaults Floor 8",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31109": {
+  "name": "Stimen Vaults Floor 9",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31110": {
+  "name": "Stimen Vaults Floor 10",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31111": {
+  "name": "Stimen Vaults Floor 11",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31112": {
+  "name": "Stimen Vaults Floor 12",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31113": {
+  "name": "Stimen Vaults Floor 13",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31114": {
+  "name": "Stimen Vaults Floor 14",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31115": {
+  "name": "Stimen Vaults Floor 15",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31116": {
+  "name": "Stimen Vaults Floor 16",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31117": {
+  "name": "Stimen Vaults Floor 17",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31118": {
+  "name": "Stimen Vaults Floor 18",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31119": {
+  "name": "Stimen Vaults Floor 19",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31120": {
+  "name": "Stimen Vaults Floor 20",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31121": {
+  "name": "Stimen Vaults Floor 21",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31122": {
+  "name": "Stimen Vaults Floor 22",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31123": {
+  "name": "Stimen Vaults Floor 23",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31124": {
+  "name": "Stimen Vaults Floor 24",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31125": {
+  "name": "Stimen Vaults Floor 25",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31126": {
+  "name": "Stimen Vaults Floor 26",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31127": {
+  "name": "Stimen Vaults Floor 27",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31128": {
+  "name": "Stimen Vaults Floor 28",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31129": {
+  "name": "Stimen Vaults Floor 29",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31130": {
+  "name": "Stimen Vaults Floor 30",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31131": {
+  "name": "Stimen Vaults Floor 31",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31132": {
+  "name": "Stimen Vaults Floor 32",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31133": {
+  "name": "Stimen Vaults Floor 33",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31134": {
+  "name": "Stimen Vaults Floor 34",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31135": {
+  "name": "Stimen Vaults Floor 35",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31136": {
+  "name": "Stimen Vaults Floor 36",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31137": {
+  "name": "Stimen Vaults Floor 37",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31138": {
+  "name": "Stimen Vaults Floor 38",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31139": {
+  "name": "Stimen Vaults Floor 39",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31140": {
+  "name": "Stimen Vaults Floor 40",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31141": {
+  "name": "Stimen Vaults Floor 41",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31142": {
+  "name": "Stimen Vaults Floor 42",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31143": {
+  "name": "Stimen Vaults Floor 43",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31144": {
+  "name": "Stimen Vaults Floor 44",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31145": {
+  "name": "Stimen Vaults Floor 45",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31146": {
+  "name": "Stimen Vaults Floor 46",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31147": {
+  "name": "Stimen Vaults Floor 47",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31148": {
+  "name": "Stimen Vaults Floor 48",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31149": {
+  "name": "Stimen Vaults Floor 49",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31150": {
+  "name": "Stimen Vaults Floor 50",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31151": {
+  "name": "Stimen Vaults Floor 51",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31152": {
+  "name": "Stimen Vaults Floor 52",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31153": {
+  "name": "Stimen Vaults Floor 53",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31154": {
+  "name": "Stimen Vaults Floor 54",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31155": {
+  "name": "Stimen Vaults Floor 55",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31156": {
+  "name": "Stimen Vaults Floor 56",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31157": {
+  "name": "Stimen Vaults Floor 57",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31158": {
+  "name": "Stimen Vaults Floor 58",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31159": {
+  "name": "Stimen Vaults Floor 59",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31160": {
+  "name": "Stimen Vaults Floor 60",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31161": {
+  "name": "Stimen Vaults Floor 61",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31162": {
+  "name": "Stimen Vaults Floor 62",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31163": {
+  "name": "Stimen Vaults Floor 63",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31164": {
+  "name": "Stimen Vaults Floor 64",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31165": {
+  "name": "Stimen Vaults Floor 65",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31166": {
+  "name": "Stimen Vaults Floor 66",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31167": {
+  "name": "Stimen Vaults Floor 67",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31168": {
+  "name": "Stimen Vaults Floor 68",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31169": {
+  "name": "Stimen Vaults Floor 69",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31170": {
+  "name": "Stimen Vaults Floor 70",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "31171": {
+  "name": "Stimen Vaults Floor 71",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31172": {
+  "name": "Stimen Vaults Floor 72",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31173": {
+  "name": "Stimen Vaults Floor 73",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31174": {
+  "name": "Stimen Vaults Floor 74",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "31175": {
+  "name": "Stimen Vaults Floor 75",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32101": {
+  "name": "Floor 1",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32102": {
+  "name": "Floor 2",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32103": {
+  "name": "Floor 3",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32104": {
+  "name": "Floor 4",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32105": {
+  "name": "Floor 5",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32106": {
+  "name": "Floor 6",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32107": {
+  "name": "Floor 7",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32108": {
+  "name": "Floor 8",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32109": {
+  "name": "Floor 9",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32110": {
+  "name": "Floor 10",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32111": {
+  "name": "Floor 11",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32112": {
+  "name": "Floor 12",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32113": {
+  "name": "Floor 13",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32114": {
+  "name": "Floor 14",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32115": {
+  "name": "Floor 15",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32116": {
+  "name": "Floor 16",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32117": {
+  "name": "Floor 17",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32118": {
+  "name": "Floor 18",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32119": {
+  "name": "Floor 19",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32120": {
+  "name": "Floor 20",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32121": {
+  "name": "Floor 21",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32122": {
+  "name": "Floor 22",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32123": {
+  "name": "Floor 23",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32124": {
+  "name": "Floor 24",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32125": {
+  "name": "Floor 25",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32126": {
+  "name": "Floor 26",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32127": {
+  "name": "Floor 27",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32128": {
+  "name": "Floor 28",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32129": {
+  "name": "Floor 29",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32130": {
+  "name": "Floor 30",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32131": {
+  "name": "Floor 31",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32132": {
+  "name": "Floor 32",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32133": {
+  "name": "Floor 33",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32134": {
+  "name": "Floor 34",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32135": {
+  "name": "Floor 35",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32136": {
+  "name": "Floor 36",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32137": {
+  "name": "Floor 37",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32138": {
+  "name": "Floor 38",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32139": {
+  "name": "Floor 39",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32140": {
+  "name": "Floor 40",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32141": {
+  "name": "Floor 41",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32142": {
+  "name": "Floor 42",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32143": {
+  "name": "Floor 43",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32144": {
+  "name": "Floor 44",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32145": {
+  "name": "Floor 45",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32146": {
+  "name": "Floor 46",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32147": {
+  "name": "Floor 47",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32148": {
+  "name": "Floor 48",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32149": {
+  "name": "Floor 49",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32150": {
+  "name": "Floor 50",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32151": {
+  "name": "Floor 51",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32152": {
+  "name": "Floor 52",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32153": {
+  "name": "Floor 53",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32154": {
+  "name": "Floor 54",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32155": {
+  "name": "Floor 55",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "32156": {
+  "name": "Floor 56",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32157": {
+  "name": "Floor 57",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32158": {
+  "name": "Floor 58",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32159": {
+  "name": "Floor 59",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "32160": {
+  "name": "Floor 60",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "40001": {
+  "name": "Homestead House",
+  "file": "community_house_interior_001",
+  "resId": 40001
+ },
+ "171001": {
+  "name": "Isolated Island",
+  "file": "home_system_guidetask",
+  "resId": 171001
+ },
+ "60000": {
+  "name": "Track! The Deep-Sea Fish Shadow",
+  "file": "fld001_05_underwater",
+  "resId": 75
+ },
+ "60001": {
+  "name": "First White Waves",
+  "file": "fld001_05_underwater",
+  "resId": 75
+ },
+ "60002": {
+  "name": "Foggy Sea Shadows",
+  "file": "fld001_05_underwater",
+  "resId": 75
+ },
+ "60003": {
+  "name": "Deep Tide Anomaly",
+  "file": "fld001_05_underwater",
+  "resId": 75
+ },
+ "60004": {
+  "name": "Raging Sea Finale",
+  "file": "fld001_05_underwater",
+  "resId": 75
+ }
+}

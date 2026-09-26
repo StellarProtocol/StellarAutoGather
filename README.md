@@ -61,4 +61,4 @@ single self-contained assembly.
 
 ## License
 
-For personal use with Blue Protocol: Star Resonance.
+Licensed under the **GNU Affero General Public License v3.0** — see [LICENSE](LICENSE).
