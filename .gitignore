@@ -1,0 +1,6 @@
+bin/
+obj/
+plugins/
+Local.props
+*.user
+.vs/

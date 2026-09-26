@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <!-- Copy this file to Local.props and set GameInstallDir to your game install (the folder containing BepInEx\ and stellar\). -->
+    <GameInstallDir>C:\Path\To\game_mini</GameInstallDir>
+    <PluginDeployDir>$(MSBuildThisFileDirectory)plugins\autogather\</PluginDeployDir>
+    <GamePluginDir>$(GameInstallDir)\stellar\plugins\autogather\</GamePluginDir>
+  </PropertyGroup>
+
+  <!-- Single self-contained DLL: DotRecast (Core + Detour) is ILRepack-merged into Stellar.AutoGather.dll and
+       scene_map.json is embedded in it (see Stellar.AutoGather.csproj) — nothing ships alongside the plugin DLL. Runs
+       AFTER the ILRepack merge. The <file>.navmesh.bin navmeshes live in the shared $(GameInstallDir)\stellar\navmesh\
+       folder — game-folder data, not a plugin dependency, not deployed here. -->
+  <Target Name="DeployPlugin" AfterTargets="ILRepackDotRecast">
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(PluginDeployDir)" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(GamePluginDir)" />
+  </Target>
+</Project>

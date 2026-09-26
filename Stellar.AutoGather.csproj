@@ -1,0 +1,98 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(MSBuildThisFileDirectory)Local.props" Condition="Exists('$(MSBuildThisFileDirectory)Local.props')" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <NoWarn>CS8632;CS8765</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>Stellar.AutoGather</RootNamespace>
+    <AssemblyName>Stellar.AutoGather</AssemblyName>
+    <Version>2.0.0</Version>
+    <Deterministic>true</Deterministic>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- i18n: Localization arrived in 2.1.0, but LauncherEntry.TitleProvider (live tile re-localization) needs 2.3.0. -->
+    <PackageReference Include="Stellar.Abstractions"       Version="2.3.0" />
+    <PackageReference Include="Stellar.PluginContracts"    Version="2.0.0" />
+    <PackageReference Include="Stellar.Plugin.InteropRefs" Version="2.0.0" />
+
+    <!-- Navmesh NAVIGATION (query + follow only — NavGatherFollower/NavMeshNavigator/NavmeshLoader). 2026.3.1 ships a
+         netstandard2.1 target net6.0 consumes. DotRecast.Recast (the BAKE) is intentionally NOT referenced — this
+         plugin loads the offline-baked <sceneFile>.navmesh.bin, it never bakes. Pure-managed → 2 DLLs.
+         GeneratePathProperty exposes $(PkgDotRecast_*) so the ILRepack target below can locate the netstandard2.1
+         assemblies and MERGE them INTO Stellar.AutoGather.dll (a library project doesn't copy package DLLs to bin, so
+         these references are compile-time only and never land beside the plugin — the merged single DLL carries them). -->
+    <PackageReference Include="DotRecast.Core"   Version="2026.3.1" GeneratePathProperty="true" />
+    <PackageReference Include="DotRecast.Detour" Version="2026.3.1" GeneratePathProperty="true" />
+
+    <!-- ILRepack task only (PrivateAssets=all → not a runtime/transitive dep of the plugin). Provides the <ILRepack>
+         MSBuild task used by the ILRepackDotRecast target below. -->
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.34.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources/autogather-icon.png" LogicalName="Stellar.AutoGather.autogather-icon.png" />
+    <!-- i18n catalogs: embedded on the PRIMARY assembly (like the icon above) so they survive the ILRepack merge.
+         Auto-discovered by the framework at load via LogicalName "Stellar.<AssemblyName>.Lang.<locale>.json". -->
+    <EmbeddedResource Include="Lang/en.json"  LogicalName="Stellar.AutoGather.Lang.en.json" />
+    <EmbeddedResource Include="Lang/ja.json"  LogicalName="Stellar.AutoGather.Lang.ja.json" />
+    <EmbeddedResource Include="Lang/th.json"  LogicalName="Stellar.AutoGather.Lang.th.json" />
+    <EmbeddedResource Include="Lang/id.json"  LogicalName="Stellar.AutoGather.Lang.id.json" />
+    <EmbeddedResource Include="Lang/fil.json" LogicalName="Stellar.AutoGather.Lang.fil.json" />
+    <!-- scene_map.json (CurrentSceneId → scene file/name) is MERGED into the DLL — no sidecar ships. SceneMap.Load()
+         reads it back via Assembly.GetManifestResourceStream. Sourced from the offline-generated NavmeshBake output. -->
+    <EmbeddedResource Include="..\NavmeshBake\scene_map.json" LogicalName="Stellar.AutoGather.scene_map.json" />
+
+    <!-- The gathering-zone navmeshes are EMBEDDED so the plugin ships as a single self-contained DLL (no <file>.navmesh.bin
+         sidecars). LogicalName transform: for fld001.navmesh.bin, %(Filename)=fld001.navmesh + %(Extension)=.bin →
+         "Stellar.AutoGather.navmesh.fld001.navmesh.bin". NavGatherFollower builds the identical name from the scene's
+         `file` token and loads embedded-first (game-folder <GameInstallDir>\stellar\navmesh\ is the fallback). A GLOB:
+         edit the shipped set by adding/removing .bin here, not by editing this line. Embedded resources live on the
+         PRIMARY assembly (Stellar.AutoGather, first ILRepack input) so they survive the merge below. -->
+    <EmbeddedResource Include="Resources\navmesh\*.navmesh.bin">
+      <LogicalName>Stellar.AutoGather.navmesh.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="resources/**" />
+  </ItemGroup>
+
+  <!-- Merge the pure-managed DotRecast.Core + DotRecast.Detour assemblies INTO Stellar.AutoGather.dll so the plugin is a
+       single self-contained DLL (no sidecar DotRecast DLLs, no AppDomain.AssemblyResolve). Internalize=true makes the
+       merged DotRecast.* types INTERNAL — critical so they can't clash with StellarExperimentPlugin's separately-loaded
+       PUBLIC DotRecast.* assemblies in the same BepInEx AppDomain. The FIRST input (Stellar.AutoGather.dll) is the
+       primary: its identity + public plugin type are preserved (never internalized) so the framework still discovers it.
+       Repack to a temp file then overwrite the output, so ILRepack isn't reading and writing the same path at once. -->
+  <Target Name="ILRepackDotRecast" AfterTargets="Build">
+    <PropertyGroup>
+      <PluginDll>$(OutputPath)$(AssemblyName).dll</PluginDll>
+      <MergedTemp>$(IntermediateOutputPath)ilrepack\$(AssemblyName).dll</MergedTemp>
+    </PropertyGroup>
+    <ItemGroup>
+      <!-- Primary assembly MUST be first (keeps its identity + public types). -->
+      <ILRepackInput Include="$(PluginDll)" />
+      <ILRepackInput Include="$(PkgDotRecast_Core)\lib\netstandard2.1\DotRecast.Core.dll" />
+      <ILRepackInput Include="$(PkgDotRecast_Detour)\lib\netstandard2.1\DotRecast.Detour.dll" />
+      <!-- Search dirs so ILRepack resolves referenced assemblies (plugin output + package folders). -->
+      <ILRepackLib Include="$(OutputPath)" />
+      <ILRepackLib Include="$(PkgDotRecast_Core)\lib\netstandard2.1" />
+      <ILRepackLib Include="$(PkgDotRecast_Detour)\lib\netstandard2.1" />
+    </ItemGroup>
+    <MakeDir Directories="$(IntermediateOutputPath)ilrepack" />
+    <ILRepack
+      Parallel="true"
+      Internalize="true"
+      TargetKind="Dll"
+      InputAssemblies="@(ILRepackInput)"
+      LibraryPath="@(ILRepackLib)"
+      OutputFile="$(MergedTemp)" />
+    <Copy SourceFiles="$(MergedTemp)" DestinationFiles="$(PluginDll)" OverwriteReadOnlyFiles="true" />
+  </Target>
+
+</Project>
