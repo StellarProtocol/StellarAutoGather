@@ -1,0 +1,42 @@
+<Project>
+  <!-- Custom ILRepack merge for the pure-managed DotRecast.Core + DotRecast.Detour assemblies INTO
+       Stellar.AutoGather.dll so the plugin ships as a single self-contained DLL (no sidecar DotRecast DLLs, no
+       AppDomain.AssemblyResolve). Internalize=true makes the merged DotRecast.* types INTERNAL — critical so they
+       can't clash with StellarExperimentPlugin's separately-loaded PUBLIC DotRecast.* assemblies in the same
+       BepInEx AppDomain. The FIRST input (Stellar.AutoGather.dll) is the primary: its identity + public plugin
+       type are preserved (never internalized) so the framework still discovers it.
+
+       ⚠️ This file MUST live at the project root. Its mere PRESENCE disables the ILRepack.Lib.MSBuild.Task
+       package's auto-injected default `ILRepack` target (gated on `!Exists($(ProjectDir)ILRepack.targets)`), which
+       otherwise runs alongside this one AND composes the primary DLL path as `$(OutputPath)$(TargetName)$(TargetExt)`
+       — that concat drops the separator under the registry CI sandbox's `-o /out` (no trailing slash) build and
+       fails with "Unable to resolve assembly '/outStellar.AutoGather.dll'". CombatMeter uses the same pattern. -->
+  <Target Name="ILRepackDotRecast" AfterTargets="Build">
+    <PropertyGroup>
+      <!-- Compose the DLL path with Path.Combine so the separator is ALWAYS inserted correctly, regardless of
+           whether $(TargetDir)/$(OutputPath) carries a trailing slash (it doesn't under a bare `-o <dir>` build). -->
+      <PluginDll>$([System.IO.Path]::Combine('$(TargetDir)', '$(TargetFileName)'))</PluginDll>
+      <MergedTemp>$(IntermediateOutputPath)ilrepack\$(AssemblyName).dll</MergedTemp>
+    </PropertyGroup>
+    <ItemGroup>
+      <!-- Primary assembly MUST be first (keeps its identity + public types). -->
+      <ILRepackInput Include="$(PluginDll)" />
+      <ILRepackInput Include="$(PkgDotRecast_Core)\lib\netstandard2.1\DotRecast.Core.dll" />
+      <ILRepackInput Include="$(PkgDotRecast_Detour)\lib\netstandard2.1\DotRecast.Detour.dll" />
+      <!-- Search dirs so ILRepack resolves referenced assemblies (plugin output + package folders). -->
+      <ILRepackLib Include="$(TargetDir)" />
+      <ILRepackLib Include="$(PkgDotRecast_Core)\lib\netstandard2.1" />
+      <ILRepackLib Include="$(PkgDotRecast_Detour)\lib\netstandard2.1" />
+    </ItemGroup>
+    <MakeDir Directories="$(IntermediateOutputPath)ilrepack" />
+    <ILRepack
+      Parallel="true"
+      DebugInfo="false"
+      Internalize="true"
+      TargetKind="Dll"
+      InputAssemblies="@(ILRepackInput)"
+      LibraryPath="@(ILRepackLib)"
+      OutputFile="$(MergedTemp)" />
+    <Copy SourceFiles="$(MergedTemp)" DestinationFiles="$(PluginDll)" OverwriteReadOnlyFiles="true" />
+  </Target>
+</Project>

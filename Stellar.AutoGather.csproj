@@ -64,36 +64,8 @@
     <Compile Remove="resources/**" />
   </ItemGroup>
 
-  <!-- Merge the pure-managed DotRecast.Core + DotRecast.Detour assemblies INTO Stellar.AutoGather.dll so the plugin is a
-       single self-contained DLL (no sidecar DotRecast DLLs, no AppDomain.AssemblyResolve). Internalize=true makes the
-       merged DotRecast.* types INTERNAL — critical so they can't clash with StellarExperimentPlugin's separately-loaded
-       PUBLIC DotRecast.* assemblies in the same BepInEx AppDomain. The FIRST input (Stellar.AutoGather.dll) is the
-       primary: its identity + public plugin type are preserved (never internalized) so the framework still discovers it.
-       Repack to a temp file then overwrite the output, so ILRepack isn't reading and writing the same path at once. -->
-  <Target Name="ILRepackDotRecast" AfterTargets="Build">
-    <PropertyGroup>
-      <PluginDll>$(OutputPath)$(AssemblyName).dll</PluginDll>
-      <MergedTemp>$(IntermediateOutputPath)ilrepack\$(AssemblyName).dll</MergedTemp>
-    </PropertyGroup>
-    <ItemGroup>
-      <!-- Primary assembly MUST be first (keeps its identity + public types). -->
-      <ILRepackInput Include="$(PluginDll)" />
-      <ILRepackInput Include="$(PkgDotRecast_Core)\lib\netstandard2.1\DotRecast.Core.dll" />
-      <ILRepackInput Include="$(PkgDotRecast_Detour)\lib\netstandard2.1\DotRecast.Detour.dll" />
-      <!-- Search dirs so ILRepack resolves referenced assemblies (plugin output + package folders). -->
-      <ILRepackLib Include="$(OutputPath)" />
-      <ILRepackLib Include="$(PkgDotRecast_Core)\lib\netstandard2.1" />
-      <ILRepackLib Include="$(PkgDotRecast_Detour)\lib\netstandard2.1" />
-    </ItemGroup>
-    <MakeDir Directories="$(IntermediateOutputPath)ilrepack" />
-    <ILRepack
-      Parallel="true"
-      Internalize="true"
-      TargetKind="Dll"
-      InputAssemblies="@(ILRepackInput)"
-      LibraryPath="@(ILRepackLib)"
-      OutputFile="$(MergedTemp)" />
-    <Copy SourceFiles="$(MergedTemp)" DestinationFiles="$(PluginDll)" OverwriteReadOnlyFiles="true" />
-  </Target>
+  <!-- The DotRecast ILRepack merge lives in ILRepack.targets at the project root. Its presence there (not here)
+       is deliberate: it disables the ILRepack.Lib.MSBuild.Task package's auto-injected default target, which would
+       otherwise also run and fail the CI sandbox build. See ILRepack.targets. -->
 
 </Project>
