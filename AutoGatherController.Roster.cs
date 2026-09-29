@@ -67,7 +67,8 @@ internal sealed partial class AutoGatherController
     {
         bal = -1;
         if (!_services.Lua.Ready) return false;
-        _services.Lua.DoString("pcall(function() rawset(_G,'__ag_bal', (Z.VMMgr.GetVM('items')):GetItemTotalCount(20003)) end)");
+        // DOT call: GetItemTotalCount has no self param — a colon passes the VM as configId and drops 20003 (see condition_helper.lua:623).
+        _services.Lua.DoString("pcall(function() rawset(_G,'__ag_bal', (Z.VMMgr.GetVM('items')).GetItemTotalCount(20003)) end)");
         if (_services.Lua.TryReadGlobalNumber("__ag_bal", out var v)) { bal = (int)v; return bal >= 0; }
         return false;
     }

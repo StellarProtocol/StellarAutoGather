@@ -237,7 +237,8 @@ internal sealed partial class AutoGatherController
             " local uuid = " + uuid.ToString(CultureInfo.InvariantCulture) +
             " local focus = " + (_focusMode ? "true" : "false") +
             // Current Focus (item 20003) balance, read in its OWN pcall so a VM hiccup can't abort the fire. -1 = unreadable.
-            " pcall(function() rawset(_G,'__ag_focus_bal', (Z.VMMgr.GetVM('items')):GetItemTotalCount(20003)) end)" +
+            // DOT call: GetItemTotalCount has no self param — a colon passes the VM as configId and drops 20003 (see condition_helper.lua:623).
+            " pcall(function() rawset(_G,'__ag_focus_bal', (Z.VMMgr.GetVM('items')).GetItemTotalCount(20003)) end)" +
             " local list = ((Z.DataMgr).Get)(\"interaction_data\"):GetData()" +
             " if list == nil then return end" +
             " local n = #list" +
