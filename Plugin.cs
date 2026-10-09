@@ -59,13 +59,15 @@ public sealed partial class Plugin : IStellarPlugin
             Root: BuildAutoGatherRoot(),
             OnClose: () => _window!.SetVisible(false)));
 
+        // Title stays the fixed literal "Auto-Gather" — the stable pin-identity key (ILauncher.cs:49-50) —
+        // so a pinned tile survives a language change; TitleProvider carries the live-localized display.
         _launcherEntry = _services.Launcher.Register(new LauncherEntry(
-            Title:   _loc.T("ag.title"),
+            Title:   "Auto-Gather",
             IconPng: LoadIconPng(),
             IconKey: null,
             OnOpen:  () => _window.SetVisible(true))
         { Group = LauncherGroup.Plugin,
-          // Re-localize the tile title live on a language change (Title alone is a captured string).
+          // Re-localize the tile DISPLAY on a language change; Title above never changes (pin identity).
           TitleProvider = () => _loc.T("ag.title"),
           // Gameplay tool: only surface its launcher tile while in-world.
           ShouldShow = () => _services.ClientState.Phase == GamePhase.World });
