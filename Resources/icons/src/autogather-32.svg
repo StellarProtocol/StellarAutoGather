@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+<title>Auto gather — 32 pixel optical redraw</title>
+<g fill="#FFFFFF" fill-rule="evenodd">
+<!-- End ring, facets and mouth fold omitted to reserve 2px gaps. -->
+<path d="M2 7 L5 5 V3 H7 L8 5 Q9 4 9 7 Q10 9 8 10 L4 12 Q1 12 1 9 Z"/>
+<path d="M17 1 L20 4 L18 6 V10 H16 V6 L14 4 Z M12 6 L14 8 V10 L12 9 Z M20 8 L22 6 V10 L20 11 Z"/>
+<path d="M27 7 Q26 4 31 3 V5 Q31 8 28 9 L27 10 Q30 8 31 9 Q30 11 27 11 H24 Q25 9 27 7 Z M24 4 H26 V7 Q24 7 24 4 Z"/>
+<path d="M16 12 H18 V14 H19 L17 17 L15 14 H16 Z"/>
+<path d="M9 13 Q11 13 12 15 L13 14 V17 L9 16 L10 15 H8 Z M25 13 Q23 13 22 15 L21 14 V17 L25 16 L24 15 H26 Z"/>
+<path d="M11 21 L10 19 H13 L15 20 L17 19 L19 20 L21 19 H23 L22 21 V22 H11 Z"/>
+<path d="M11 24 H22 L24 25 H26 V27 H24 L23 26 L24 28 V29 H22 V27 Q23 31 20 31 H11 Q8 31 9 28 Z"/>
+
+</g>
+</svg>

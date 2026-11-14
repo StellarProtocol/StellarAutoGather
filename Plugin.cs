@@ -84,7 +84,7 @@ public sealed partial class Plugin : IStellarPlugin
         // so a pinned tile survives a language change; TitleProvider carries the live-localized display.
         _launcherEntry = _services.Launcher.Register(new LauncherEntry(
             Title:   "Auto-Gather",
-            IconPng: HeaderIcon(),
+            IconPng: Icon(128),
             IconKey: null,
             // Opens from hidden → remounts on top of its category; no BringToFront needed (CLAUDE.md Rule 5).
             OnOpen:  () => _window.SetVisible(true))
@@ -148,21 +148,22 @@ public sealed partial class Plugin : IStellarPlugin
         _autoGatherController?.Dispose();
     }
 
-    // The header glyph and the launcher tile share the one embedded white glyph PNG (kept until the new icon is picked).
-    // Loaded once and cached (null too, so a missing resource isn't re-probed every frame by the image element).
-    private static bool    _iconLoaded;
-    private static byte[]? _iconPng;
-    private static byte[]? HeaderIcon()
+    // Launcher tile = the 128 px art; window header = the exact HeaderGlyphPx bitmap (Plugin.Style.Blocks.cs).
+    // Cached per size (null results too, so a missing resource isn't re-probed every frame by the image element).
+    private static readonly System.Collections.Generic.Dictionary<int, byte[]?> _iconPngs = new();
+    private static byte[]? Icon(int px)
     {
-        if (!_iconLoaded) { _iconLoaded = true; _iconPng = LoadIconPng(); }
-        return _iconPng;
+        if (!_iconPngs.TryGetValue(px, out var png)) _iconPngs[px] = png = LoadIconPng(px);
+        return png;
     }
 
-    private static byte[]? LoadIconPng()
+    // Loads the pre-drawn bitmap for exactly <px> (12/16/24/32/40/64/128) — each size is hinted to its own pixel grid, so
+    // callers ask for the size they draw at instead of scaling one master (Stellar-Design-Language.md "Icon art rule").
+    private static byte[]? LoadIconPng(int px)
     {
         try
         {
-            using var s = typeof(Plugin).Assembly.GetManifestResourceStream("Stellar.AutoGather.autogather-icon.png");
+            using var s = typeof(Plugin).Assembly.GetManifestResourceStream($"Stellar.AutoGather.autogather-{px}.png");
             if (s == null) return null;
             using var ms = new System.IO.MemoryStream();
             s.CopyTo(ms);

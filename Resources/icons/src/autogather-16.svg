@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges">
+<title>Auto gather — 16 pixel optical redraw</title>
+<g fill="#FFFFFF" fill-rule="evenodd">
+<!-- Whole-pixel silhouettes. Log and both curved arrows omitted. -->
+<path d="M7 1 H9 V2 H10 V3 H9 V4 H7 V3 H6 V2 H7 Z"/>
+<path d="M13 2 H15 V4 H14 V5 H13 V6 H12 V7 H11 V5 H12 V3 H13 Z"/>
+<path d="M7 5 H9 V6 H10 V7 H9 V8 H7 V7 H6 V6 H7 Z"/>
+<path d="M5 9 H7 V10 H9 V9 H11 V10 H10 V11 H6 V10 H5 Z"/>
+<path d="M5 12 H10 V13 H11 V14 H10 V15 H5 V14 H4 V13 H5 Z M10 12 H12 V13 H13 V14 H12 V13 H11 V12 Z"/>
+
+</g>
+</svg>

@@ -28,7 +28,7 @@ public sealed partial class Plugin
 
     private HudElement BuildRoot() => new ColumnElement(new HudElement[]
     {
-        ToolHeader(HeaderIcon, () => _loc.T("ag.title"), BuildHeaderStatus()),
+        ToolHeader(() => Icon(HeaderGlyphPx),() => _loc.T("ag.title"), BuildHeaderStatus()),
         BuildResourcePanel(),
         BuildModePanel(),
         BuildOptionsPanel(),

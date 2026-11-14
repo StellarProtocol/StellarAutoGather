@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" shape-rendering="crispEdges">
+<title>Auto gather — 12 pixel optical redraw</title>
+<g fill="#FFFFFF" fill-rule="evenodd">
+<!-- Whole-pixel shorthand: crystal, sprig and tied pouch; arrows omitted. -->
+<path d="M5 1 H6 V2 H7 V3 H6 V4 H5 V3 H4 V2 H5 Z"/>
+<path d="M9 1 H11 V3 H10 V4 H9 V5 H8 V3 H9 Z"/>
+<path d="M3 6 H5 V7 H6 V6 H8 V7 H7 V8 H4 V7 H3 Z"/>
+<path d="M4 9 H7 V10 H8 V11 H2 V10 H3 V9 Z M8 8 H10 V10 H9 V9 H8 Z"/>
+
+</g>
+</svg>
