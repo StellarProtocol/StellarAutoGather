@@ -16,8 +16,8 @@ namespace Stellar.AutoGather;
 public sealed partial class Plugin
 {
     private const float ModeChipW     = 100f;   // "Normal" / "Focus" in every locale
-    private const float LimitLabelW   = 100f;   // "Focus limit" (longest: fil "Limit ng Focus")
-    private const float LimitValueW   = 92f;    // bold value; fits "No limit" in every locale (longest: fil "Walang limit")
+    private const float LimitLabelW   = 104f;   // "Focus limit" (longest: fil "Limit ng Focus", th)
+    private const float LimitValueW   = 104f;   // bold 13 value; fits "No limit" in every locale (longest: fil "Walang limit" ≈ 97 px)
     private const float MeterHeight   = 6f;
     private const float InfoLineH     = 20f;
     private const float InfoGap       = 4f;

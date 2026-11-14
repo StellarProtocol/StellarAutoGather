@@ -19,7 +19,7 @@ namespace Stellar.AutoGather;
 // happen only while the window is SHOWN, on the controller's ~1 s throttles.
 public sealed partial class Plugin
 {
-    private const float WindowWidth      = 440f;
+    private const float WindowWidth      = 460f;   // widest locale strings fit without cramming the slider (SDL R18)
     private const float StatusLineHeight = 20f;
     private const float FooterPillLabelW = 72f;   // "Start" / "Stop" in every locale (longest: id "Berhenti")
     private const float FooterPillW      = FooterPillLabelW + 2f * PillPadX;
