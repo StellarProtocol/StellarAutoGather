@@ -33,6 +33,8 @@ public sealed partial class Plugin : IStellarPlugin
         _autoGatherController = new AutoGatherController(_services, _moveDriver, _loc);
         _autoGatherController.FocusMode         = _autoGatherFocus;
         _autoGatherController.DismissMonthlyCard = _autoGatherDismissCard;
+        // Focus limit: stop a Focus run after spending this much Focus (-1 = no limit). Manual setting, default 200.
+        _autoGatherController.FocusLimit = NormalizeFocusLimit(_cfg.Get<int>("autogather_focus_limit", DefaultFocusLimit));
         _autoGatherController.UseNavmesh      = true;   // forced ON (walk around obstacles) — toggle removed
         _autoGatherController.NavmeshFallback = false;  // forced: always skip unreachable nodes — toggle removed
 

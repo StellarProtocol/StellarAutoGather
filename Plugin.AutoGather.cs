@@ -126,7 +126,7 @@ public sealed partial class Plugin
         {
             int slot = s;
             pool[s] = new SelectableElement(
-                new TextElement(() => _autoGatherController.RosterRowLabel(_gatherRosterFirst + slot)),
+                new TextElement(() => _autoGatherController.RowName(_gatherRosterFirst + slot)),
                 OnClick:  () => _autoGatherController.SelectRosterRow(_gatherRosterFirst + slot),
                 Selected: () => _autoGatherController.IsRosterRowSelected(_gatherRosterFirst + slot));
         }

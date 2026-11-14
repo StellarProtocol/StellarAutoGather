@@ -39,15 +39,41 @@ internal sealed partial class AutoGatherController
         { Uuid = uuid; ConfigId = configId; Name = name; PickRange = pickRange; Dist = dist; }
     }
 
-    // One picker row per distinct configId currently nearby (aggregated from _nodes).
+    // One picker row per distinct configId currently nearby (aggregated from _nodes). CountText / DistText are the
+    // window's "×4" / "12 m" cells, taken from the interned label caches below when the roster is rebuilt (~1 Hz), so
+    // the UI reads plain strings and never formats per refresh.
     private readonly struct TypeRow
     {
         public readonly int    ConfigId;
         public readonly string Name;
         public readonly int    Count;
         public readonly float  NearestDist;
+        public readonly string CountText;
+        public readonly string DistText;
         public TypeRow(int configId, string name, int count, float nearestDist)
-        { ConfigId = configId; Name = name; Count = count; NearestDist = nearestDist; }
+        {
+            ConfigId = configId; Name = name; Count = count; NearestDist = nearestDist;
+            CountText = CountLabel(count); DistText = DistLabel(nearestDist);
+        }
+    }
+
+    // "×N" / "N m" strings, made once per distinct value and reused forever (a few dozen at most). Units only, no
+    // prose → not localized (Plugin-Localization-i18n.md "Text with no translatable prose").
+    private static readonly Dictionary<int, string> _countLabels = new();
+    private static readonly Dictionary<int, string> _distLabels  = new();
+
+    private static string CountLabel(int n)
+    {
+        if (!_countLabels.TryGetValue(n, out var s)) _countLabels[n] = s = "×" + n.ToString(CultureInfo.InvariantCulture);
+        return s;
+    }
+
+    private static string DistLabel(float d)
+    {
+        if (d >= float.MaxValue) return "?";
+        int m = (int)MathF.Round(d);
+        if (!_distLabels.TryGetValue(m, out var s)) _distLabels[m] = s = m.ToString(CultureInfo.InvariantCulture) + " m";
+        return s;
     }
 
     private readonly List<NodeEntry>          _nodes       = new();   // life-resource nodes, sorted nearest-first
@@ -58,66 +84,39 @@ internal sealed partial class AutoGatherController
     private double _rosterTimer = -999;
     private double _focusGateTimer = -999;   // throttle for the strict-Focus seek-time balance check (~1s)
     private const double BlacklistSeconds = 15.0;
+    private readonly Dictionary<int, int> _rowIndex = new();   // configId → index into _typeRows (reused per rebuild)
+    private int _lockedCount;                                  // available nodes of the locked type (from the last rebuild)
 
-    // Focus (item 20003) cost of the LOCKED type (0 = normal-only / unknown / not resolved yet).
-    private int LockedFocusCost => (_lockedConfigId != 0 && _cfgCache.TryGetValue(_lockedConfigId, out var c)) ? c.Cost : 0;
-
-    // Current Focus (item 20003) balance; false/-1 when unreadable. Read via the game items VM (same call FireBeginInteraction uses).
-    private bool TryReadFocusBalance(out int bal)
-    {
-        bal = -1;
-        if (!_services.Lua.Ready) return false;
-        // DOT call: GetItemTotalCount has no self param — a colon passes the VM as configId and drops 20003 (see condition_helper.lua:623).
-        _services.Lua.DoString("pcall(function() rawset(_G,'__ag_bal', (Z.VMMgr.GetVM('items')).GetItemTotalCount(20003)) end)");
-        if (_services.Lua.TryReadGlobalNumber("__ag_bal", out var v)) { bal = (int)v; return bal >= 0; }
-        return false;
-    }
-
-    // ── Picker accessors — one row per distinct type nearby (mirror FollowController.Roster.cs surface) ─────
+    // ── Picker accessors — one row per distinct type nearby. Count refreshes the roster on its ~1 s throttle; the
+    //    per-row reads are plain field reads (no formatting) so a 10 Hz window refresh allocates nothing. ─────────
     public int RosterDisplayCount { get { EnsureRosterFresh(); return _typeRows.Count; } }
 
-    public string RosterRowLabel(int i)
-    {
-        EnsureRosterFresh();
-        if (i < 0 || i >= _typeRows.Count) return "";
-        var r = _typeRows[i];
-        string dist = r.NearestDist >= float.MaxValue ? "?" : $"{r.NearestDist:F1}m";
-        string mark = r.ConfigId == _lockedConfigId ? "▶ " : "";
-        return $"{mark}{r.Name} ×{r.Count}  {dist}";
-    }
+    private bool RowOk(int i) => i >= 0 && i < _typeRows.Count;
+    public int    RowConfigId(int i)  => RowOk(i) ? _typeRows[i].ConfigId  : 0;
+    public string RowName(int i)      => RowOk(i) ? _typeRows[i].Name      : "";
+    public string RowCountText(int i) => RowOk(i) ? _typeRows[i].CountText : "";
+    public string RowDistText(int i)  => RowOk(i) ? _typeRows[i].DistText  : "";
 
-    public bool IsRosterRowSelected(int i) => i >= 0 && i < _typeRows.Count && _typeRows[i].ConfigId == _lockedConfigId;
+    public bool IsRosterRowSelected(int i) => RowOk(i) && _typeRows[i].ConfigId == _lockedConfigId;
 
     // Click a picker row → lock that resource type; the loop then farms all nearby nodes of THAT configId.
     public void SelectRosterRow(int i)
     {
-        EnsureRosterFresh();
-        if (i < 0 || i >= _typeRows.Count) return;
+        if (!RowOk(i)) return;
         var r = _typeRows[i];
         _lockedConfigId = r.ConfigId;
         _lockedName     = r.Name;
-        ResetLoop(_loc.TFormat("ag.status.locked", r.Name));
+        _lockedCount    = r.Count;
+        _lastStop       = StopReason.None;   // a new pick reads "Ready", not the previous run's "Stopped"
+        ResetLoop(_loc.TFormat("ag.status.seeking", r.Name));
         _services.Log.Info($"[Gather] locked type configId={r.ConfigId} '{r.Name}'");
     }
 
+    public int    LockedConfigId => _lockedConfigId;
     public string LockedName => _lockedConfigId == 0 ? "" : _lockedName;
 
-    // Count of nearby, currently-available (non-blacklisted) nodes of the LOCKED type (drives the status line).
-    public int LockedTypeCount
-    {
-        get
-        {
-            EnsureRosterFresh();
-            if (_lockedConfigId == 0) return 0;
-            int n = 0;
-            foreach (var e in _nodes)
-            {
-                if (IsBlacklisted(e.Uuid)) continue;   // skip nodes we're currently backing off from
-                if (e.ConfigId == _lockedConfigId) n++;
-            }
-            return n;
-        }
-    }
+    // Count of nearby, currently-available (non-blacklisted) nodes of the LOCKED type (drives the header status line).
+    public int LockedTypeCount { get { EnsureRosterFresh(); return _lockedConfigId == 0 ? 0 : _lockedCount; } }
 
     // ── Nearest-of-locked-type selection (drives the Seek state) ──────────────
     private bool TrySelectNearest(Vector3 localPos, out long uuid, out float pickRange, out string name)
@@ -204,22 +203,24 @@ internal sealed partial class AutoGatherController
     private void AggregateTypeRows()
     {
         _typeRows.Clear();
-        var seen = new Dictionary<int, int>();   // configId → index into _typeRows
+        _rowIndex.Clear();
         foreach (var e in _nodes)
         {
             if (IsBlacklisted(e.Uuid)) continue;   // skip nodes we're currently backing off from
-            if (seen.TryGetValue(e.ConfigId, out var idx))
+            if (_rowIndex.TryGetValue(e.ConfigId, out var idx))
             {
                 var r = _typeRows[idx];
                 _typeRows[idx] = new TypeRow(r.ConfigId, r.Name, r.Count + 1, r.NearestDist);
             }
             else
             {
-                seen[e.ConfigId] = _typeRows.Count;
+                _rowIndex[e.ConfigId] = _typeRows.Count;
                 _typeRows.Add(new TypeRow(e.ConfigId, e.Name, 1, e.Dist));   // _nodes is nearest-first → first seen = nearest
             }
         }
         _typeRows.Sort((a, b) => a.NearestDist.CompareTo(b.NearestDist));
+        _lockedCount = 0;
+        foreach (var r in _typeRows) if (r.ConfigId == _lockedConfigId) { _lockedCount = r.Count; break; }
     }
 
     // ── uuid → config id (C# reflection, exact long) ─────────────────────────

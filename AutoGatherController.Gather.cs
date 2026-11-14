@@ -37,6 +37,12 @@ internal sealed partial class AutoGatherController
         if (_focusMode)
         {
             int cost = LockedFocusCost;                       // 0 = normal-only/unresolved → gate doesn't apply
+
+            // Focus LIMIT gate (user setting, AutoGatherController.Focus.cs): stop BEFORE a gather that would push this
+            // run's spent Focus past the limit. Pure int maths, so it runs on every seek (no throttle) — raising the limit
+            // while running is honoured on the next seek. Normal mode never gets here.
+            if (cost > 0 && FocusLimitReached(cost)) { StopFocusLimit(cost); return; }
+
             double now = _services.Framework.TimeNow;
             if (cost > 0 && now - _focusGateTimer >= 1.0)
             {
@@ -65,7 +71,7 @@ internal sealed partial class AutoGatherController
         else
         {
             _moveDriver.Stop(this);
-            SetStatus(_lockedConfigId == 0 ? _loc.T("ag.status.pickType") : _loc.TFormat("ag.status.noNodes", LockedName), "no-nodes");
+            SetStatus(NoNodesStatus(), "no-nodes");   // cached: this branch repeats every frame while nothing is nearby
         }
     }
 
@@ -99,7 +105,7 @@ internal sealed partial class AutoGatherController
         Vector3 steer = ComputeApproachSteer(localEnt, localPos, nodePos);
         if (_approachSkip) { OnNodeGone("unreachable — skipping"); return; }
         if (_moveDriver.TryDrive(this, localPos, steer, 1f))
-            SetStatus(_loc.TFormat("ag.status.approaching", dist.ToString("F1")), "approaching");
+            SetStatus(ApproachStatus(dist), "approaching");   // whole metres, re-formatted only when the metre changes
         else
             SetStatus("move deferred (shared driver busy or arrived)", "deferred");
     }
@@ -322,6 +328,8 @@ internal sealed partial class AutoGatherController
         _lastFocusCond    = focusCond;
         _lastFound        = found;
         _lastFocusBal     = focusBal;
+        if (focusBal >= 0) _focusBal = (int)focusBal;      // free refresh of the window's "You have N" cache
+        _lastFiredFocus   = fired && mode == "Focus";      // only a Focus-option channel spends Focus (CountGather)
         if (_focusMode && !fired)
             _services.Log.Info($"[Gather] focus no-fire: present={focusPresent} cond={focusCond} found={found} bal={focusBal} cost={_targetFocusCost}");
 
@@ -337,7 +345,8 @@ internal sealed partial class AutoGatherController
     // node, walks back, fails, then advances (the visible delay). ~15s blacklist; a refreshed node returns as a new uuid.
     private void OnGatherComplete(string via)
     {
-        _services.Log.Info($"[Gather] complete via {via} (uuid={_targetUuid})");
+        CountGather();   // gathered +1; Focus spent += the node's cost if the channel was on the Focus option
+        _services.Log.Info($"[Gather] complete via {via} (uuid={_targetUuid}) gathered={_gatheredCount} focusSpent={_focusSpent}");
         _fired = false;
         ProgressEndedUuid = 0;
         ClearPath();
