@@ -23,7 +23,7 @@ namespace Stellar.AutoGather;
 //
 // ⭐ SEARCH EXTENT: the FindNearestPoly half-extent needs a LARGE vertical component (the query point's Y can sit
 // several metres off the nearest navmesh poly). Wide Y, moderate XZ — matches the baker's (…,128,…) self-test.
-internal sealed class NavMeshNavigator
+internal sealed partial class NavMeshNavigator
 {
     public const float ExtentXZ = 12f;
     public const float ExtentY  = 256f;
@@ -78,20 +78,39 @@ internal sealed class NavMeshNavigator
         var s2 = query.FindNearestPoly(endPos,   ext, filter, out long endRef,   out RcVec3f endPt,   out _);
         bool startOk = s1.Succeeded() && startRef != 0;
         bool endOk   = s2.Succeeded() && endRef   != 0;
-        if (!startOk || !endOk) { diag = $"startPolyValid={startOk} endPolyValid={endOk}"; return false; }
+        if (!startOk || !endOk)
+        {
+            diag = $"startPolyValid={startOk} endPolyValid={endOk}" +
+                   CoordNote(start, startOk, startPt, startRef, end, endOk, endPt, endRef, false, default);
+            return false;
+        }
 
         var fp = query.FindPath(startRef, endRef, startPt, endPt, filter, _polyBuf.AsSpan(), out int nPolys, _polyBuf.Length);
         if (!fp.Succeeded() || nPolys == 0) { diag = $"FindPath status={fp} polys={nPolys}"; return false; }
 
-        // Unreachable check: FindPath returns a PARTIAL path to the nearest reachable poly when the goal can't be
-        // reached. Refuse it (don't navigate a partial corridor). Detect via DT_PARTIAL_RESULT AND the corridor's
-        // last poly not being the snapped-goal poly (belt + suspenders).
-        long lastPoly = _polyBuf[nPolys - 1];
-        bool lastNeGoal = lastPoly != endRef;
-        if (fp.IsPartial() || lastNeGoal)
-        { diag = $"unreachable (partial={fp.IsPartial()}, polys={nPolys}, last≠goal={lastNeGoal})"; return false; }
+        // Partial check: FindPath returns a PARTIAL path to the nearest reachable poly when the goal poly can't be
+        // reached. Detect via DT_PARTIAL_RESULT AND the corridor's last poly not being the snapped-goal poly (belt +
+        // suspenders). A partial is NOT automatically unreachable: a gather node's own rock collider carves/disconnects
+        // the baked mesh around it, so the reachable end often stops a metre or two short of a node a player walks up
+        // to normally. TryAcceptPartial (NavMeshNavigator.Partial.cs) keeps the corridor when its reachable end is close
+        // enough to the NODE (end) for the follower's straight-line final leg to finish; only a real gap refuses (→ skip).
+        RcVec3f goalPt = endPt;
+        string partialNote = "";
+        bool isPartial = false;
+        if (fp.IsPartial() || _polyBuf[nPolys - 1] != endRef)
+        {
+            isPartial = true;
+            if (!TryAcceptPartial(query, filter, ext, start, end, ref startPt, ref startRef, endRef, endPt, ref nPolys,
+                    out goalPt, out bool hasClosest, out partialNote))
+            {
+                // Refused → log the raw + snapped coords and the closest reachable point so the path can be replayed
+                // offline with the NavmeshBake probe tool (planning is once per target, so this string is not per frame).
+                diag = partialNote + CoordNote(start, true, startPt, startRef, end, true, endPt, endRef, hasClosest, goalPt);
+                return false;
+            }
+        }
 
-        var sp = query.FindStraightPath(startPt, endPt, _polyBuf.AsSpan(0, nPolys), nPolys,
+        var sp = query.FindStraightPath(startPt, goalPt, _polyBuf.AsSpan(0, nPolys), nPolys,
             _straightBuf.AsSpan(), out int nStraight, _straightBuf.Length, 0);
         if (!sp.Succeeded() || nStraight == 0) { diag = $"FindStraightPath status={sp} waypoints={nStraight}"; return false; }
 
@@ -126,7 +145,8 @@ internal sealed class NavMeshNavigator
         SimplifyDouglasPeucker(waypoints, SimplifyTolerance);
         int simplified = waypoints.Count;
 
-        diag = $"polys={nPolys} straight={nStraight} control={controlCount} pushed={pushed} smoothed={smoothed} simplified={simplified}";
+        diag = $"{partialNote}polys={nPolys} straight={nStraight} control={controlCount} pushed={pushed} smoothed={smoothed} simplified={simplified}" +
+               CoordNote(start, true, startPt, startRef, end, true, endPt, endRef, isPartial, goalPt);
         return waypoints.Count > 0;
     }
 

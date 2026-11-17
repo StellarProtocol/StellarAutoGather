@@ -43,7 +43,7 @@ internal sealed partial class AutoGatherController
     private bool   _focusMode;          // true = prefer the Focus (spends ~20 Focus) option; false = always Normal
     private int    _lockedConfigId;     // the resource type the loop farms (0 = none picked)
     private string _lockedName = "";    // its CollectionName (for status text)
-    private string _status      = "off";
+    private string _status      = "";   // the footer activity line; empty while stopped
 
     private GState _state = GState.Seeking;
     private long   _targetUuid;         // node currently being approached / gathered
@@ -56,24 +56,13 @@ internal sealed partial class AutoGatherController
         _services   = services;
         _moveDriver = moveDriver;
         _loc        = loc;
-        // Localize the initial "off" the field initializer set (it runs before _loc exists); this default
-        // shows in the window until the loop first runs, so it must not stay an English literal.
-        _status     = _loc.T("ag.status.off");
     }
 
+    // Fine-grained activity ("Walking to node · 8 m", "Gathering…") for the window footer; the header summary is built
+    // by the host from Enabled / Pause / LastStop (AutoGatherController.Focus.cs).
     public string Status => _status;
 
-    public Action? OnAutoStopped;   // fired when the loop self-stops (e.g. out of Focus in strict Focus mode)
-
-    // Strict Focus mode ran out of Focus → stop the whole loop rather than silently doing a Normal gather or
-    // grinding through nodes. Tears down like SetEnabled(false) then reports a clear status + notifies the host.
-    private void StopOutOfFocus()
-    {
-        _services.Log.Info("[Gather] out of Focus — stopping auto-gather (strict Focus mode)");
-        SetEnabled(false);                   // full teardown (unsubscribe, stop move, abort channel)
-        SetStatus(_loc.T("ag.status.outOfFocus")); // override the "off" status SetEnabled just set
-        OnAutoStopped?.Invoke();
-    }
+    public Action? OnAutoStopped;   // fired when the loop self-stops (out of Focus, or the Focus limit was reached)
 
     // Focus/Normal gather mode (KB §5b). Focus prefers the [63]/focus option (falls back to Normal when its
     // CheckCondition fails or the node has no focus template); Normal always takes the non-focus option.
@@ -99,6 +88,7 @@ internal sealed partial class AutoGatherController
         _enabled = value;
         if (value)
         {
+            BeginRun();   // Start = a new run: Focus spent / gathered count from zero, clear the last stop reason
             _services.Framework.Update += OnUpdate;
             _subscribed = true;
             _moveDriver.Install(this);
@@ -113,7 +103,8 @@ internal sealed partial class AutoGatherController
             _moveDriver.Uninstall(this);
             UninstallProgressHook();
             _state = GState.Seeking; _targetUuid = 0;
-            SetStatus(_loc.T("ag.status.off"));
+            _pause = PauseKind.None;
+            SetStatus("", "off");
             _services.Log.Info("[Gather] disabled");
         }
     }
@@ -135,23 +126,26 @@ internal sealed partial class AutoGatherController
             if (!EnsureApi()) { SetStatus("api not ready"); return; }
 
             // After auto-closing a reward popup, let the UI settle before driving/gathering again.
-            if (_services.Framework.TimeNow < _popupResumeAt) { SetStatus(_loc.T("ag.status.popupPaused"), "popup"); return; }
+            // _pause feeds the header ("Paused · In combat"); set by each pausing gate, cleared once every gate passes.
+            if (_services.Framework.TimeNow < _popupResumeAt)
+            { _pause = PauseKind.Popup; SetStatus(_loc.T("ag.status.popupPaused"), "popup"); return; }
 
             long localUuid = _services.CombatSnapshot.LocalEntityId.Value;
             if (localUuid == 0) { ResetLoop("no local player"); return; }
             var localEnt = GetEntity(localUuid);
             if (localEnt == null) { ResetLoop("no local entity"); return; }
 
-            if (IsDead(localEnt)) { ResetLoop(_loc.T("ag.status.dead")); return; }
+            if (IsDead(localEnt)) { _pause = PauseKind.Dead; ResetLoop(_loc.T("ag.status.dead")); return; }
 
             // Auto-dismiss the daily monthly-card / reward popup (opt-in) so an AFK session isn't interrupted.
-            if (DismissMonthlyCard && CheckMonthlyCardPopup()) return;
+            if (DismissMonthlyCard && CheckMonthlyCardPopup()) { _pause = PauseKind.Popup; return; }
 
             // Out-of-combat gate (KB §5): in combat blocks the gather → pause the loop, abort any active channel.
             long combat = GetAttrLong(localEnt, _boxCombatState);
             // Route through ResetLoop so the server pathfind is cleared too (else CtrlAutoMoveComp keeps auto-walking
             // during combat, and combat-exit would resume on the stale pre-combat corridor).
-            if (combat != 0) { ResetLoop(_loc.T("ag.status.inCombat")); return; }
+            if (combat != 0) { _pause = PauseKind.Combat; ResetLoop(_loc.T("ag.status.inCombat")); return; }
+            _pause = PauseKind.None;
 
             if (!TryGetPos(localEnt, out var localPos)) { SetStatus("position unavailable"); return; }
 

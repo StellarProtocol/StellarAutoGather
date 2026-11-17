@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" shape-rendering="crispEdges">
+<title>Auto gather — 24 pixel optical redraw</title>
+<g fill="#FFFFFF" fill-rule="evenodd">
+<!-- Five bold motifs: log, crystal, leaf sprig, centre arrow, tied pouch. -->
+<path d="M2 7 L4 6 V4 H6 V5 Q8 5 8 7 Q8 9 6 10 L3 11 Q1 11 1 9 Z"/>
+<path d="M13 1 L16 4 L14 6 V7 H12 V6 L10 4 Z"/>
+<path d="M20 8 Q19 5 23 4 V6 Q23 9 20 10 L19 12 H17 L19 8 Z"/>
+<path d="M12 9 H14 V11 H16 L13 14 L10 11 H12 Z"/>
+<path d="M8 15 H10 L12 16 L14 15 H17 L16 17 H9 Z"/>
+<path d="M8 18 H16 L19 19 H21 V21 H19 L18 20 Q19 23 16 23 H8 Q5 23 6 21 Z"/>
+
+</g>
+</svg>

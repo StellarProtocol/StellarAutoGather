@@ -59,6 +59,7 @@ internal sealed class NavGatherFollower
     private DtNavMesh?      _navMesh;
     private DtNavMeshQuery? _query;
     private int             _navScene           = int.MinValue;
+    private string          _navFile            = "";   // loaded navmesh's scene `file` token — logged for offline repro
     private int             _navLoadFailedScene = int.MinValue;
 
     // Per-node corridor state.
@@ -125,13 +126,13 @@ internal sealed class NavGatherFollower
         if (!_navigator.TryComputeCorridor(_navMesh!, _query!, start, nodePos, _waypoints, out string diag) || _waypoints.Count == 0)
         {
             _waypoints.Clear();
-            _services.Log.Info($"[GatherNav] no corridor to node {_activeUuid} ({diag}) — straight-line");
+            _services.Log.Info($"[GatherNav] no corridor to node {_activeUuid} ({diag} scene={_navFile}) — straight-line");
             return false;
         }
         _wpIndex = 0;
         _bestRemaining = float.MaxValue;
         _stuckSince = _services.Framework.TimeNow;
-        _services.Log.Info($"[GatherNav] corridor to node {_activeUuid}: {_waypoints.Count} wpts {NavMeshNavigator.HorizontalLength(_waypoints):F1}m ({diag})");
+        _services.Log.Info($"[GatherNav] corridor to node {_activeUuid}: {_waypoints.Count} wpts {NavMeshNavigator.HorizontalLength(_waypoints):F1}m ({diag} scene={_navFile})");
         return true;
     }
 
@@ -347,6 +348,7 @@ internal sealed class NavGatherFollower
             _navMesh = mesh;
             _query = new DtNavMeshQuery(_navMesh);
             _navScene = scene;
+            _navFile = file;
             _navLoadFailedScene = int.MinValue;
             _services.Log.Info($"[GatherNav] loaded {file} ({source}) — scene {scene}");
             return true;

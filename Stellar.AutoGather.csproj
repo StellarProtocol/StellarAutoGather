@@ -16,10 +16,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- i18n: Localization arrived in 2.1.0, but LauncherEntry.TitleProvider (live tile re-localization) needs 2.3.0. -->
-    <PackageReference Include="Stellar.Abstractions"       Version="2.3.0" />
-    <PackageReference Include="Stellar.PluginContracts"    Version="2.0.0" />
-    <PackageReference Include="Stellar.Plugin.InteropRefs" Version="2.0.0" />
+    <!-- House style (Stellar Design Language) needs >= 2.29 (Bubble FillColorFn, Bare selectables, round chips);
+         2.30.0 adds theme status colours, VirtualListElement.FixedHeight and WindowSpec.Prebuild. -->
+    <PackageReference Include="Stellar.Abstractions"       Version="2.30.0" />
+    <PackageReference Include="Stellar.PluginContracts"    Version="2.30.0" />
+    <PackageReference Include="Stellar.Plugin.InteropRefs" Version="2.30.0" />
 
     <!-- Navmesh NAVIGATION (query + follow only — NavGatherFollower/NavMeshNavigator/NavmeshLoader). 2026.3.1 ships a
          netstandard2.1 target net6.0 consumes. DotRecast.Recast (the BAKE) is intentionally NOT referenced — this
@@ -36,8 +37,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources/autogather-icon.png" LogicalName="Stellar.AutoGather.autogather-icon.png" />
-    <!-- i18n catalogs: embedded on the PRIMARY assembly (like the icon above) so they survive the ILRepack merge.
+    <!-- Icon art is pre-drawn per size (house rule: never one master scaled down); the code picks the exact bitmap.
+         The SVG sources under Resources/icons/src are kept for redraws and are NOT embedded. Embedded on the PRIMARY
+         assembly so they survive the ILRepack merge. -->
+    <EmbeddedResource Include="Resources/icons/autogather-12.png"  LogicalName="Stellar.AutoGather.autogather-12.png" />
+    <EmbeddedResource Include="Resources/icons/autogather-16.png"  LogicalName="Stellar.AutoGather.autogather-16.png" />
+    <EmbeddedResource Include="Resources/icons/autogather-24.png"  LogicalName="Stellar.AutoGather.autogather-24.png" />
+    <EmbeddedResource Include="Resources/icons/autogather-32.png"  LogicalName="Stellar.AutoGather.autogather-32.png" />
+    <EmbeddedResource Include="Resources/icons/autogather-40.png"  LogicalName="Stellar.AutoGather.autogather-40.png" />
+    <EmbeddedResource Include="Resources/icons/autogather-64.png"  LogicalName="Stellar.AutoGather.autogather-64.png" />
+    <EmbeddedResource Include="Resources/icons/autogather-128.png" LogicalName="Stellar.AutoGather.autogather-128.png" />
+    <!-- i18n catalogs: embedded on the PRIMARY assembly (like the icons above) so they survive the ILRepack merge.
          Auto-discovered by the framework at load via LogicalName "Stellar.<AssemblyName>.Lang.<locale>.json". -->
     <EmbeddedResource Include="Lang/en.json"  LogicalName="Stellar.AutoGather.Lang.en.json" />
     <EmbeddedResource Include="Lang/ja.json"  LogicalName="Stellar.AutoGather.Lang.ja.json" />

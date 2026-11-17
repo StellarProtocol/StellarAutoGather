@@ -37,6 +37,12 @@ internal sealed partial class AutoGatherController
         if (_focusMode)
         {
             int cost = LockedFocusCost;                       // 0 = normal-only/unresolved → gate doesn't apply
+
+            // Focus LIMIT gate (user setting, AutoGatherController.Focus.cs): stop BEFORE a gather that would push this
+            // run's spent Focus past the limit. Pure int maths, so it runs on every seek (no throttle) — raising the limit
+            // while running is honoured on the next seek. Normal mode never gets here.
+            if (cost > 0 && FocusLimitReached(cost)) { StopFocusLimit(cost); return; }
+
             double now = _services.Framework.TimeNow;
             if (cost > 0 && now - _focusGateTimer >= 1.0)
             {
@@ -50,7 +56,7 @@ internal sealed partial class AutoGatherController
             }
         }
 
-        if (TrySelectNearest(localPos, out var uuid, out var pickRange, out var name))
+        if (TrySelectNearest(localPos, out var uuid, out var pickRange, out var name, out bool skippedAny))
         {
             _targetUuid      = uuid;
             _targetPickRange = pickRange;
@@ -65,7 +71,10 @@ internal sealed partial class AutoGatherController
         else
         {
             _moveDriver.Stop(this);
-            SetStatus(_lockedConfigId == 0 ? _loc.T("ag.status.pickType") : _loc.TFormat("ag.status.noNodes", LockedName), "no-nodes");
+            // Nodes of the locked type ARE here but every one is backed off as unreachable/stuck → say so (the 15 s
+            // blacklist retries them), never "No <name> nearby" — that read as the loop having stopped. Both cached.
+            if (skippedAny) SetStatus(AllSkippedStatus(), "all-skipped");
+            else SetStatus(NoNodesStatus(), "no-nodes");   // cached: this branch repeats every frame while nothing is nearby
         }
     }
 
@@ -80,7 +89,7 @@ internal sealed partial class AutoGatherController
 
         // Universal safety net: skip a node we can't reach. StuckTooLong = IsStuckInPlace (hard wall); NoProgress =
         // distance-to-node not improving for ~2.5s (catches WALL-SLIDING, where IsStuckInPlace doesn't trip).
-        if (StuckTooLong(localEnt) || NoProgress(dist)) { OnNodeGone("stuck — skipping"); return; }
+        if (StuckTooLong(localEnt) || NoProgress(dist)) { OnNodeGone("stuck — skipping", skipped: true); return; }
 
         float stop = _targetPickRange > 0.1f ? _targetPickRange : DefaultStopDistance;
         if (dist <= stop)
@@ -97,9 +106,9 @@ internal sealed partial class AutoGatherController
 
         // Straight-line toward the node; the watchdogs above skip it if it turns out to be unreachable.
         Vector3 steer = ComputeApproachSteer(localEnt, localPos, nodePos);
-        if (_approachSkip) { OnNodeGone("unreachable — skipping"); return; }
+        if (_approachSkip) { OnNodeGone("unreachable — skipping", skipped: true); return; }
         if (_moveDriver.TryDrive(this, localPos, steer, 1f))
-            SetStatus(_loc.TFormat("ag.status.approaching", dist.ToString("F1")), "approaching");
+            SetStatus(ApproachStatus(dist), "approaching");   // whole metres, re-formatted only when the metre changes
         else
             SetStatus("move deferred (shared driver busy or arrived)", "deferred");
     }
@@ -322,6 +331,8 @@ internal sealed partial class AutoGatherController
         _lastFocusCond    = focusCond;
         _lastFound        = found;
         _lastFocusBal     = focusBal;
+        if (focusBal >= 0) _focusBal = (int)focusBal;      // free refresh of the window's "You have N" cache
+        _lastFiredFocus   = fired && mode == "Focus";      // only a Focus-option channel spends Focus (CountGather)
         if (_focusMode && !fired)
             _services.Log.Info($"[Gather] focus no-fire: present={focusPresent} cond={focusCond} found={found} bal={focusBal} cost={_targetFocusCost}");
 
@@ -337,7 +348,8 @@ internal sealed partial class AutoGatherController
     // node, walks back, fails, then advances (the visible delay). ~15s blacklist; a refreshed node returns as a new uuid.
     private void OnGatherComplete(string via)
     {
-        _services.Log.Info($"[Gather] complete via {via} (uuid={_targetUuid})");
+        CountGather();   // gathered +1; Focus spent += the node's cost if the channel was on the Focus option
+        _services.Log.Info($"[Gather] complete via {via} (uuid={_targetUuid}) gathered={_gatheredCount} focusSpent={_focusSpent}");
         _fired = false;
         ProgressEndedUuid = 0;
         ClearPath();
@@ -348,13 +360,14 @@ internal sealed partial class AutoGatherController
     }
 
     // Node dropped out of entityDict_ during approach (someone else took it / it depleted) → blacklist briefly + reseek.
-    private void OnNodeGone(string why)
+    // skipped = the node is still there but we gave up reaching it (unreachable/stuck) → tracked for the status line.
+    private void OnNodeGone(string why, bool skipped = false)
     {
         _services.Log.Info($"[Gather] {why} (uuid={_targetUuid})");
         _moveDriver.Stop(this);   // R1: release the stick before reseeking (avoid one stale-direction frame)
         ProgressEndedUuid = 0;
         ClearPath();
-        if (_targetUuid != 0) AddBlacklist(_targetUuid);
+        if (_targetUuid != 0) AddBlacklist(_targetUuid, skipped);
         _state = GState.Seeking; _targetUuid = 0;
         SetStatus(_loc.T("ag.status.nodeGone"), "node-gone");
     }
