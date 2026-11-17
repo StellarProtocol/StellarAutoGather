@@ -81,6 +81,7 @@ internal sealed partial class AutoGatherController
     private readonly Dictionary<long, int>    _uuidConfig  = new();   // uuid → config id (stable per node)
     private readonly Dictionary<int, NodeCfg> _cfgCache    = new();   // config id → resolved table row
     private readonly Dictionary<long, double> _blacklist   = new();   // uuid → expiry time (failed/aborted nodes)
+    private readonly HashSet<long>            _skipped     = new();   // blacklisted uuids that were SKIPPED (unreachable/stuck), not gathered/failed — drives the "can't reach" status
     private double _rosterTimer = -999;
     private double _focusGateTimer = -999;   // throttle for the strict-Focus seek-time balance check (~1s)
     private const double BlacklistSeconds = 15.0;
@@ -119,16 +120,17 @@ internal sealed partial class AutoGatherController
     public int LockedTypeCount { get { EnsureRosterFresh(); return _lockedConfigId == 0 ? 0 : _lockedCount; } }
 
     // ── Nearest-of-locked-type selection (drives the Seek state) ──────────────
-    private bool TrySelectNearest(Vector3 localPos, out long uuid, out float pickRange, out string name)
+    // skippedAny = a node of the locked type IS nearby but currently backed off as unreachable/stuck (status honesty).
+    private bool TrySelectNearest(Vector3 localPos, out long uuid, out float pickRange, out string name, out bool skippedAny)
     {
-        uuid = 0; pickRange = DefaultStopDistance; name = _lockedName;
+        uuid = 0; pickRange = DefaultStopDistance; name = _lockedName; skippedAny = false;
         if (_lockedConfigId == 0) return false;
         EnsureRosterFresh();
         float best = float.MaxValue;
         foreach (var e in _nodes)
         {
             if (e.ConfigId != _lockedConfigId) continue;
-            if (IsBlacklisted(e.Uuid)) continue;
+            if (IsBlacklisted(e.Uuid)) { if (_skipped.Contains(e.Uuid)) skippedAny = true; continue; }
             if (e.Dist >= best) continue;
             best = e.Dist; uuid = e.Uuid; pickRange = e.PickRange > 0.1f ? e.PickRange : DefaultStopDistance; name = e.Name;
         }
@@ -136,16 +138,19 @@ internal sealed partial class AutoGatherController
     }
 
     // ── Blacklist ────────────────────────────────────────────────────────────
-    private void AddBlacklist(long uuid)
+    // skipped = backed off because it couldn't be reached (unreachable / stuck / no progress), as opposed to gathered,
+    // gone or a failed interaction. Only skipped nodes make Seek say "can't reach" instead of "none nearby".
+    private void AddBlacklist(long uuid, bool skipped = false)
     {
         _blacklist[uuid] = _services.Framework.TimeNow + BlacklistSeconds;
-        _services.Log.Info($"[Gather] blacklist node {uuid} for {BlacklistSeconds:F0}s");
+        if (skipped) _skipped.Add(uuid); else _skipped.Remove(uuid);
+        _services.Log.Info($"[Gather] blacklist node {uuid} for {BlacklistSeconds:F0}s{(skipped ? " (skipped)" : "")}");
     }
 
     private bool IsBlacklisted(long uuid)
     {
         if (!_blacklist.TryGetValue(uuid, out var expiry)) return false;
-        if (_services.Framework.TimeNow >= expiry) { _blacklist.Remove(uuid); return false; }
+        if (_services.Framework.TimeNow >= expiry) { _blacklist.Remove(uuid); _skipped.Remove(uuid); return false; }
         return true;
     }
 

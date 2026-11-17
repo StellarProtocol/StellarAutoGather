@@ -31,6 +31,7 @@
   "ag.head.runRest": "{0} · sisa {1}",
   "ag.status.pickType": "Pilih sumber daya di bawah",
   "ag.status.noNodes": "Tidak ada {0} di dekat",
+  "ag.status.allSkipped": "Tidak bisa menjangkau {0} di sini · segera mencoba lagi",
   "ag.status.seeking": "Mencari {0}",
   "ag.status.settling": "Bersiap",
   "ag.status.inRangeSettling": "Dalam jangkauan · bersiap",

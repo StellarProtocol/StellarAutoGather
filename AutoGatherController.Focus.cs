@@ -149,4 +149,20 @@ internal sealed partial class AutoGatherController
         }
         return _noNodesText;
     }
+
+    // Locked type IS nearby but every node is backed off as unreachable/stuck (15 s blacklist) — cached like NoNodesStatus.
+    private int     _allSkippedId = int.MinValue;
+    private string? _allSkippedLang;
+    private string  _allSkippedText = "";
+
+    private string AllSkippedStatus()
+    {
+        string lang = _loc.Language;
+        if (_lockedConfigId != _allSkippedId || !ReferenceEquals(lang, _allSkippedLang))
+        {
+            _allSkippedId = _lockedConfigId; _allSkippedLang = lang;
+            _allSkippedText = _loc.TFormat("ag.status.allSkipped", LockedName);
+        }
+        return _allSkippedText;
+    }
 }

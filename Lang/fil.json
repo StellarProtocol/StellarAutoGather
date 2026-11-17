@@ -31,6 +31,7 @@
   "ag.head.runRest": "{0} · {1} natitira",
   "ag.status.pickType": "Pumili ng resource sa ibaba",
   "ag.status.noNodes": "Walang {0} sa malapit",
+  "ag.status.allSkipped": "Hindi maabot ang anumang {0} dito · susubukan ulit maya-maya",
   "ag.status.seeking": "Hinahanap ang {0}",
   "ag.status.settling": "Naghahanda",
   "ag.status.inRangeSettling": "Nasa saklaw · naghahanda",

@@ -31,6 +31,7 @@
   "ag.head.runRest": "{0} · 残り{1}個",
   "ag.status.pickType": "下から資源を選んでください",
   "ag.status.noNodes": "付近に{0}がありません",
+  "ag.status.allSkipped": "ここの{0}にたどり着けません · まもなく再試行",
   "ag.status.seeking": "{0}を探しています",
   "ag.status.settling": "準備中",
   "ag.status.inRangeSettling": "範囲内 · 準備中",

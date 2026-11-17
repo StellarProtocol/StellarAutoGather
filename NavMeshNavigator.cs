@@ -23,7 +23,7 @@ namespace Stellar.AutoGather;
 //
 // ⭐ SEARCH EXTENT: the FindNearestPoly half-extent needs a LARGE vertical component (the query point's Y can sit
 // several metres off the nearest navmesh poly). Wide Y, moderate XZ — matches the baker's (…,128,…) self-test.
-internal sealed class NavMeshNavigator
+internal sealed partial class NavMeshNavigator
 {
     public const float ExtentXZ = 12f;
     public const float ExtentY  = 256f;
@@ -83,15 +83,21 @@ internal sealed class NavMeshNavigator
         var fp = query.FindPath(startRef, endRef, startPt, endPt, filter, _polyBuf.AsSpan(), out int nPolys, _polyBuf.Length);
         if (!fp.Succeeded() || nPolys == 0) { diag = $"FindPath status={fp} polys={nPolys}"; return false; }
 
-        // Unreachable check: FindPath returns a PARTIAL path to the nearest reachable poly when the goal can't be
-        // reached. Refuse it (don't navigate a partial corridor). Detect via DT_PARTIAL_RESULT AND the corridor's
-        // last poly not being the snapped-goal poly (belt + suspenders).
-        long lastPoly = _polyBuf[nPolys - 1];
-        bool lastNeGoal = lastPoly != endRef;
-        if (fp.IsPartial() || lastNeGoal)
-        { diag = $"unreachable (partial={fp.IsPartial()}, polys={nPolys}, last≠goal={lastNeGoal})"; return false; }
+        // Partial check: FindPath returns a PARTIAL path to the nearest reachable poly when the goal poly can't be
+        // reached. Detect via DT_PARTIAL_RESULT AND the corridor's last poly not being the snapped-goal poly (belt +
+        // suspenders). A partial is NOT automatically unreachable: a gather node's own rock collider carves/disconnects
+        // the baked mesh around it, so the reachable end often stops a metre or two short of a node a player walks up
+        // to normally. TryAcceptPartial (NavMeshNavigator.Partial.cs) keeps the corridor when its reachable end is close
+        // enough to the NODE (end) for the follower's straight-line final leg to finish; only a real gap refuses (→ skip).
+        RcVec3f goalPt = endPt;
+        string partialNote = "";
+        if (fp.IsPartial() || _polyBuf[nPolys - 1] != endRef)
+        {
+            if (!TryAcceptPartial(query, filter, ext, start, end, ref startPt, endRef, endPt, ref nPolys, out goalPt, out partialNote))
+            { diag = partialNote; return false; }
+        }
 
-        var sp = query.FindStraightPath(startPt, endPt, _polyBuf.AsSpan(0, nPolys), nPolys,
+        var sp = query.FindStraightPath(startPt, goalPt, _polyBuf.AsSpan(0, nPolys), nPolys,
             _straightBuf.AsSpan(), out int nStraight, _straightBuf.Length, 0);
         if (!sp.Succeeded() || nStraight == 0) { diag = $"FindStraightPath status={sp} waypoints={nStraight}"; return false; }
 
@@ -126,7 +132,7 @@ internal sealed class NavMeshNavigator
         SimplifyDouglasPeucker(waypoints, SimplifyTolerance);
         int simplified = waypoints.Count;
 
-        diag = $"polys={nPolys} straight={nStraight} control={controlCount} pushed={pushed} smoothed={smoothed} simplified={simplified}";
+        diag = $"{partialNote}polys={nPolys} straight={nStraight} control={controlCount} pushed={pushed} smoothed={smoothed} simplified={simplified}";
         return waypoints.Count > 0;
     }
 

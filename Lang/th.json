@@ -31,6 +31,7 @@
   "ag.head.runRest": "{0} · เหลือ {1}",
   "ag.status.pickType": "เลือกทรัพยากรด้านล่าง",
   "ag.status.noNodes": "ไม่มี {0} อยู่ใกล้เคียง",
+  "ag.status.allSkipped": "ไปถึง {0} แถวนี้ไม่ได้ · จะลองใหม่เร็วๆ นี้",
   "ag.status.seeking": "กำลังหา {0}",
   "ag.status.settling": "กำลังเตรียมตัว",
   "ag.status.inRangeSettling": "อยู่ในระยะ · กำลังเตรียมตัว",

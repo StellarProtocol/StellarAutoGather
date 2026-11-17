@@ -31,6 +31,7 @@
   "ag.head.runRest": "{0} · {1} left",
   "ag.status.pickType": "Pick a resource below",
   "ag.status.noNodes": "No {0} nearby",
+  "ag.status.allSkipped": "Can't reach any {0} here · retrying soon",
   "ag.status.seeking": "Looking for {0}",
   "ag.status.settling": "Getting ready",
   "ag.status.inRangeSettling": "In range · getting ready",

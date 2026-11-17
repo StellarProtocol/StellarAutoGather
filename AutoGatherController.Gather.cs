@@ -56,7 +56,7 @@ internal sealed partial class AutoGatherController
             }
         }
 
-        if (TrySelectNearest(localPos, out var uuid, out var pickRange, out var name))
+        if (TrySelectNearest(localPos, out var uuid, out var pickRange, out var name, out bool skippedAny))
         {
             _targetUuid      = uuid;
             _targetPickRange = pickRange;
@@ -71,7 +71,10 @@ internal sealed partial class AutoGatherController
         else
         {
             _moveDriver.Stop(this);
-            SetStatus(NoNodesStatus(), "no-nodes");   // cached: this branch repeats every frame while nothing is nearby
+            // Nodes of the locked type ARE here but every one is backed off as unreachable/stuck → say so (the 15 s
+            // blacklist retries them), never "No <name> nearby" — that read as the loop having stopped. Both cached.
+            if (skippedAny) SetStatus(AllSkippedStatus(), "all-skipped");
+            else SetStatus(NoNodesStatus(), "no-nodes");   // cached: this branch repeats every frame while nothing is nearby
         }
     }
 
@@ -86,7 +89,7 @@ internal sealed partial class AutoGatherController
 
         // Universal safety net: skip a node we can't reach. StuckTooLong = IsStuckInPlace (hard wall); NoProgress =
         // distance-to-node not improving for ~2.5s (catches WALL-SLIDING, where IsStuckInPlace doesn't trip).
-        if (StuckTooLong(localEnt) || NoProgress(dist)) { OnNodeGone("stuck — skipping"); return; }
+        if (StuckTooLong(localEnt) || NoProgress(dist)) { OnNodeGone("stuck — skipping", skipped: true); return; }
 
         float stop = _targetPickRange > 0.1f ? _targetPickRange : DefaultStopDistance;
         if (dist <= stop)
@@ -103,7 +106,7 @@ internal sealed partial class AutoGatherController
 
         // Straight-line toward the node; the watchdogs above skip it if it turns out to be unreachable.
         Vector3 steer = ComputeApproachSteer(localEnt, localPos, nodePos);
-        if (_approachSkip) { OnNodeGone("unreachable — skipping"); return; }
+        if (_approachSkip) { OnNodeGone("unreachable — skipping", skipped: true); return; }
         if (_moveDriver.TryDrive(this, localPos, steer, 1f))
             SetStatus(ApproachStatus(dist), "approaching");   // whole metres, re-formatted only when the metre changes
         else
@@ -357,13 +360,14 @@ internal sealed partial class AutoGatherController
     }
 
     // Node dropped out of entityDict_ during approach (someone else took it / it depleted) → blacklist briefly + reseek.
-    private void OnNodeGone(string why)
+    // skipped = the node is still there but we gave up reaching it (unreachable/stuck) → tracked for the status line.
+    private void OnNodeGone(string why, bool skipped = false)
     {
         _services.Log.Info($"[Gather] {why} (uuid={_targetUuid})");
         _moveDriver.Stop(this);   // R1: release the stick before reseeking (avoid one stale-direction frame)
         ProgressEndedUuid = 0;
         ClearPath();
-        if (_targetUuid != 0) AddBlacklist(_targetUuid);
+        if (_targetUuid != 0) AddBlacklist(_targetUuid, skipped);
         _state = GState.Seeking; _targetUuid = 0;
         SetStatus(_loc.T("ag.status.nodeGone"), "node-gone");
     }
