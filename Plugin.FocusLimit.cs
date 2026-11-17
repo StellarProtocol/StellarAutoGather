@@ -2,25 +2,27 @@ using System;
 
 namespace Stellar.AutoGather;
 
-// Focus limit setting (approved spec option A: a slider). 0..1000 Focus in steps of 20 (one Focus gather costs ~20), and
+// Focus limit setting (approved spec option A: a slider). 0..2000 Focus in steps of 20 (one Focus gather costs ~20), and
 // one extra stop at the far right = "No limit" (stored as -1). Default 200. A manual setting (Rule 12) — never learned.
 // The controller re-reads it on every seek, so a change while running applies at once.
 //
 // The slider works in STEP INDICES (0..FocusLimitSteps + 1) so it always lands on a whole step; the config value is the
 // Focus amount. A drag fires Set many times a second, so the config FILE write is debounced (saved once the value has
 // rested for FocusLimitSaveDelay; flushed on close / logout / dispose).
+// Raising the max (1000 → 2000) needs no config migration: the value is stored as Focus, not as an index, so an old
+// saved 0..1000 / -1 still normalizes to the same limit and lands on the right (rescaled) slider position.
 public sealed partial class Plugin
 {
     private const int    DefaultFocusLimit   = 200;
     private const int    FocusLimitStep      = 20;
-    private const int    FocusLimitMax       = 1000;
-    private const int    FocusLimitSteps     = FocusLimitMax / FocusLimitStep;   // 50 → index 51 = No limit
+    private const int    FocusLimitMax       = 2000;
+    private const int    FocusLimitSteps     = FocusLimitMax / FocusLimitStep;   // 100 → index 101 = No limit
     private const int    NoLimitIndex        = FocusLimitSteps + 1;
     private const double FocusLimitSaveDelay = 0.5;
 
     private double _focusLimitSaveAt = -1;   // >= 0 = a config save is pending (debounced slider drag)
 
-    // Any stored value → a valid limit: negative = no limit, else clamped to 0..1000 and snapped to the 20 step.
+    // Any stored value → a valid limit: negative = no limit, else clamped to 0..2000 and snapped to the 20 step.
     private static int NormalizeFocusLimit(int v)
     {
         if (v < 0) return AutoGatherController.NoFocusLimit;
