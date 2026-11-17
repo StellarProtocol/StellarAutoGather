@@ -1,4 +1,6 @@
 using System;
+using System.Globalization;
+using System.Text;
 using DotRecast.Core.Numerics;
 using DotRecast.Detour;
 using UnityEngine;
@@ -32,10 +34,13 @@ internal sealed partial class NavMeshNavigator
 
     // On a partial FindPath result in _polyBuf[0..nPolys): decide accept vs refuse. On accept, nPolys is truncated to the
     // best poly, reachPt is the point to end the funnel at (and startPt may be the re-snapped start), note = diag prefix.
+    // hasClosest: reachPt is a real ClosestPointOnPoly hit (on refuse it stays the FIRST scan's best, for the diag line).
     private bool TryAcceptPartial(DtNavMeshQuery query, IDtQueryFilter filter, RcVec3f ext, Vector3 start, Vector3 goal,
-        ref RcVec3f startPt, long endRef, RcVec3f endPt, ref int nPolys, out RcVec3f reachPt, out string note)
+        ref RcVec3f startPt, ref long startRef, long endRef, RcVec3f endPt, ref int nPolys, out RcVec3f reachPt,
+        out bool hasClosest, out string note)
     {
         int best = BestPartialEnd(query, nPolys, goal, out reachPt, out float gap, out float dy);
+        hasClosest = best >= 0;
         if (best >= 0 && GapOk(gap, dy))
         {
             nPolys = best + 1;
@@ -58,7 +63,7 @@ internal sealed partial class NavMeshNavigator
                 if (!fp2.Succeeded() || n2 == 0) retry = $" retry=fail({fp2})";
                 else if (!fp2.IsPartial() && _polyBuf[n2 - 1] == endRef)
                 {
-                    startPt = p2; nPolys = n2; reachPt = endPt;
+                    startPt = p2; startRef = r2; nPolys = n2; reachPt = endPt; hasClosest = true;
                     note = "partial: re-snapped start → full path ";
                     return true;
                 }
@@ -67,7 +72,7 @@ internal sealed partial class NavMeshNavigator
                     int b2 = BestPartialEnd(query, n2, goal, out RcVec3f rp2, out float g2, out float dy2);
                     if (b2 >= 0 && GapOk(g2, dy2))
                     {
-                        startPt = p2; nPolys = b2 + 1; reachPt = rp2;
+                        startPt = p2; startRef = r2; nPolys = b2 + 1; reachPt = rp2; hasClosest = true;
                         note = $"partial accepted (re-snapped start) gap={g2:F1}m dy={dy2:F1} ";
                         return true;
                     }
@@ -83,6 +88,32 @@ internal sealed partial class NavMeshNavigator
     }
 
     private static bool GapOk(float gapXZ, float dy) => gapXZ <= PartialAcceptGapXZ && dy <= PartialAcceptGapY;
+
+    // Offline-repro suffix for the [GatherNav] diag: raw start/goal, their FindNearestPoly snaps + poly refs, and (on a
+    // partial) the closest reachable point used for the gap — enough to replay the query in the NavmeshBake probe tool.
+    // Called only when a diag string is built (once per plan, never per frame). InvariantCulture so a comma-decimal
+    // locale can't break the "(x,y,z)" tuples.
+    private static string CoordNote(Vector3 start, bool startOk, RcVec3f startSnap, long startRef,
+        Vector3 goal, bool goalOk, RcVec3f goalSnap, long goalRef, bool hasClosest, RcVec3f closest)
+    {
+        var sb = new StringBuilder(160);
+        sb.Append(" start="); V(sb, start.x, start.y, start.z);
+        sb.Append(" startSnap=");
+        if (startOk) { V(sb, startSnap.X, startSnap.Y, startSnap.Z); sb.Append(" poly=0x").Append(startRef.ToString("X", CultureInfo.InvariantCulture)); }
+        else sb.Append("none");
+        sb.Append(" goal="); V(sb, goal.x, goal.y, goal.z);
+        sb.Append(" goalSnap=");
+        if (goalOk) { V(sb, goalSnap.X, goalSnap.Y, goalSnap.Z); sb.Append(" poly=0x").Append(goalRef.ToString("X", CultureInfo.InvariantCulture)); }
+        else sb.Append("none");
+        if (hasClosest) { sb.Append(" closest="); V(sb, closest.X, closest.Y, closest.Z); }
+        return sb.ToString();
+    }
+
+    private static void V(StringBuilder sb, float x, float y, float z)
+    {
+        var ci = CultureInfo.InvariantCulture;
+        sb.Append('(').Append(x.ToString("F2", ci)).Append(',').Append(y.ToString("F2", ci)).Append(',').Append(z.ToString("F2", ci)).Append(')');
+    }
 
     // Scan the corridor polys _polyBuf[0..n) for the one whose closest point lies nearest the goal (3D distance, so a
     // poly directly UNDER a cliff-top node doesn't win on XZ alone). Detour's partial end is usually that poly already,
