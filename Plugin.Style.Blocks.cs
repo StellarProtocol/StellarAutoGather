@@ -11,11 +11,11 @@ public sealed partial class Plugin
 {
     // ── icon tile + tool header ───────────────────────────────────────────────────────────────────────────────────
     // A rounded tile in the LIVE theme accent with the white glyph PNG centred (art can't follow the theme, the tile
-    // does). The glyph is a fixed 24 px — the exact size of a pre-drawn bitmap, so it draws 1:1 instead of resampling the
-    // art (Stellar-Design-Language.md "Icon art rule"). The fixed-width Cell pins the column (Cell force-expands a child's width — the icon-squish gotcha) and the
+    // does). The glyph is the pre-drawn 40 px bitmap filling the whole 40 px tile (pad 0): that art carries its own inner
+    // margin, so it draws 1:1 with no extra padding and no resampling (Stellar-Design-Language.md "Icon art rule"). The fixed-width Cell pins the column (Cell force-expands a child's width — the icon-squish gotcha) and the
     // inner Row keeps the image square. Radius ≈ 22 % of the size (9 at 40 px).
     private const float ToolIconSize  = 40f;
-    private const int   HeaderGlyphPx = 24;
+    private const int   HeaderGlyphPx = 40;   // = ToolIconSize → pad 0
 
     private HudElement IconBox(Func<byte[]?> png, float size, int glyph)
     {
