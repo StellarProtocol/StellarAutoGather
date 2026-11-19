@@ -84,6 +84,21 @@
   "file": "fld002_00_colorfulforest",
   "resId": 90
  },
+ "101": {
+  "name": "Sunlit Trail",
+  "file": "fld003_01_forest",
+  "resId": 42
+ },
+ "102": {
+  "name": "Crimson Woods",
+  "file": "fld003_02_colorfulforest",
+  "resId": 43
+ },
+ "103": {
+  "name": "Golden Sand Beach",
+  "file": "fld003_03_desert",
+  "resId": 44
+ },
  "1001": {
   "name": "Tina's Mindrealm",
   "file": "dng_main_1001_tina",
@@ -274,6 +289,26 @@
   "file": "dng_main_1301_underandera",
   "resId": 31
  },
+ "1341": {
+  "name": "Unstable - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1342": {
+  "name": "Unstable - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1343": {
+  "name": "Chaotic - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
+ "1344": {
+  "name": "Chaotic - Dark Mist Fortress",
+  "file": "dng_main_1301_underandera",
+  "resId": 31
+ },
  "1399": {
   "name": "Level quest test",
   "file": "dng_main_1301_underandera",
@@ -379,6 +414,51 @@
   "file": "dng_main_1001_tina_s3",
   "resId": 1611
  },
+ "1711": {
+  "name": "Unstable - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1712": {
+  "name": "Unstable - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1722": {
+  "name": "Chaotic - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1723": {
+  "name": "Chaotic - Illusory Moonveil Wilds",
+  "file": "dng_main_1401_ponponcrystal",
+  "resId": 32
+ },
+ "1901": {
+  "name": "Cavern Zero",
+  "file": "dng_main_1901_lothar",
+  "resId": 1901
+ },
+ "1911": {
+  "name": "Unstable - Cavern Zero",
+  "file": "dng_main_1901_lothar",
+  "resId": 1901
+ },
+ "1912": {
+  "name": "Unstable - Cavern Zero",
+  "file": "dng_main_1901_lothar",
+  "resId": 1901
+ },
+ "1931": {
+  "name": "Cavern Zero",
+  "file": "dng_main_1901_lothar",
+  "resId": 1901
+ },
+ "1932": {
+  "name": "Cavern Zero",
+  "file": "dng_main_1901_lothar",
+  "resId": 1901
+ },
  "5000": {
   "name": "Content mechanism test scene",
   "file": "cty001",
@@ -444,6 +524,16 @@
   "file": "fld002_interior_001",
   "resId": 5602
  },
+ "51002": {
+  "name": "Fafala's Home",
+  "file": "fld002_interior_001_b",
+  "resId": 5605
+ },
+ "51004": {
+  "name": "Fafala's Home",
+  "file": "fld002_interior_001_b",
+  "resId": 5605
+ },
  "5811": {
   "name": "Smelting Furnace Pipes",
   "file": "fld002_interior_002",
@@ -473,6 +563,11 @@
   "name": "Mistveil Hunting Ground",
   "file": "dng_branch_6541_beast",
   "resId": 6541
+ },
+ "5920": {
+  "name": "Dreamscape",
+  "file": "dng_dmj_005",
+  "resId": 19
  },
  "6001": {
   "name": "Hero Instance Test Scenario",
@@ -769,6 +864,56 @@
   "file": "dng_branch_6561_coral",
   "resId": 6561
  },
+ "6610": {
+  "name": "Barren Courtyard",
+  "file": "dng_main_1701_wirda",
+  "resId": 6610
+ },
+ "6611": {
+  "name": "Unstable - Barren Courtyard",
+  "file": "dng_main_1701_wirda",
+  "resId": 6610
+ },
+ "6612": {
+  "name": "Unstable - Barren Courtyard",
+  "file": "dng_main_1701_wirda",
+  "resId": 6610
+ },
+ "6613": {
+  "name": "Chaotic - Barren Courtyard",
+  "file": "dng_main_1701_wirda",
+  "resId": 6610
+ },
+ "6614": {
+  "name": "Chaotic - Barren Courtyard",
+  "file": "dng_main_1701_wirda",
+  "resId": 6610
+ },
+ "6615": {
+  "name": "Chaotic - Barren Courtyard",
+  "file": "dng_main_1701_wirda",
+  "resId": 6610
+ },
+ "6591": {
+  "name": "Unstable - Mirror Judgment",
+  "file": "dng_branch_6591_boyce",
+  "resId": 6591
+ },
+ "6592": {
+  "name": "Unstable - Mirror Judgment",
+  "file": "dng_branch_6591_boyce",
+  "resId": 6591
+ },
+ "6593": {
+  "name": "Chaotic - Mirror Judgment",
+  "file": "dng_branch_6591_boyce",
+  "resId": 6591
+ },
+ "6594": {
+  "name": "Chaotic - Mirror Judgment",
+  "file": "dng_branch_6591_boyce",
+  "resId": 6591
+ },
  "7001": {
   "name": "Parkour",
   "file": "fld001",
@@ -1039,6 +1184,11 @@
   "file": "fld002_00_colorfulforest",
   "resId": 90
  },
+ "9300": {
+  "name": "Loom of Dreams​: Nightmare Purge",
+  "file": "dng_branch_6011_carniman",
+  "resId": 27
+ },
  "10001": {
   "name": "Square Practice Field 1",
   "file": "testdng001",
@@ -1154,6 +1304,16 @@
   "file": "dng_dmj_004",
   "resId": 18
  },
+ "12024": {
+  "name": "Guild Hunt - Normal",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
+ "12025": {
+  "name": "Guild Hunt - Hard",
+  "file": "dng_dmj_004",
+  "resId": 18
+ },
  "12030": {
   "name": "Ee-chan's Story",
   "file": "union_activity_001",
@@ -1219,6 +1379,41 @@
   "file": "dng_raid_003",
   "resId": 13021
  },
+ "14001": {
+  "name": "Winged Whale Investigation Area I",
+  "file": "td_001",
+  "resId": 14001
+ },
+ "14002": {
+  "name": "Winged Whale Investigation Area II",
+  "file": "td_001",
+  "resId": 14001
+ },
+ "14003": {
+  "name": "Nightveil Woods (Ice)",
+  "file": "td_002",
+  "resId": 14002
+ },
+ "14004": {
+  "name": "Nightveil Woods (Fire)",
+  "file": "td_002",
+  "resId": 14002
+ },
+ "14005": {
+  "name": "Nightveil Woods (Light)",
+  "file": "td_002",
+  "resId": 14002
+ },
+ "14006": {
+  "name": "Nightveil Woods (Dark)",
+  "file": "td_002",
+  "resId": 14002
+ },
+ "14007": {
+  "name": "Nightveil Woods (Endless)",
+  "file": "td_002",
+  "resId": 14002
+ },
  "13022": {
   "name": "Brutal! Field of Forgotten Illusions",
   "file": "dng_raid_003",
@@ -1228,6 +1423,21 @@
   "name": "Purge! Field of Forgotten Illusions",
   "file": "dng_raid_003",
   "resId": 13021
+ },
+ "13031": {
+  "name": "Clash! Twilight's Edge",
+  "file": "dng_raid_004",
+  "resId": 13031
+ },
+ "13032": {
+  "name": "Brutal! Twilight's Edge",
+  "file": "dng_raid_004",
+  "resId": 13031
+ },
+ "13033": {
+  "name": "Purge! Twilight's Edge",
+  "file": "dng_raid_004",
+  "resId": 13031
  },
  "15001": {
   "name": "Memory 1",
@@ -2715,314 +2925,314 @@
   "resId": 51
  },
  "32101": {
-  "name": "Floor 1",
+  "name": "Stimen Vaults Floor 1",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32102": {
-  "name": "Floor 2",
+  "name": "Stimen Vaults Floor 2",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32103": {
-  "name": "Floor 3",
+  "name": "Stimen Vaults Floor 3",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32104": {
-  "name": "Floor 4",
+  "name": "Stimen Vaults Floor 4",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32105": {
-  "name": "Floor 5",
+  "name": "Stimen Vaults Floor 5",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32106": {
-  "name": "Floor 6",
+  "name": "Stimen Vaults Floor 6",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32107": {
-  "name": "Floor 7",
+  "name": "Stimen Vaults Floor 7",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32108": {
-  "name": "Floor 8",
+  "name": "Stimen Vaults Floor 8",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32109": {
-  "name": "Floor 9",
+  "name": "Stimen Vaults Floor 9",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32110": {
-  "name": "Floor 10",
+  "name": "Stimen Vaults Floor 10",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32111": {
-  "name": "Floor 11",
+  "name": "Stimen Vaults Floor 11",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32112": {
-  "name": "Floor 12",
+  "name": "Stimen Vaults Floor 12",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32113": {
-  "name": "Floor 13",
+  "name": "Stimen Vaults Floor 13",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32114": {
-  "name": "Floor 14",
+  "name": "Stimen Vaults Floor 14",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32115": {
-  "name": "Floor 15",
+  "name": "Stimen Vaults Floor 15",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32116": {
-  "name": "Floor 16",
+  "name": "Stimen Vaults Floor 16",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32117": {
-  "name": "Floor 17",
+  "name": "Stimen Vaults Floor 17",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32118": {
-  "name": "Floor 18",
+  "name": "Stimen Vaults Floor 18",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32119": {
-  "name": "Floor 19",
+  "name": "Stimen Vaults Floor 19",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32120": {
-  "name": "Floor 20",
+  "name": "Stimen Vaults Floor 20",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32121": {
-  "name": "Floor 21",
+  "name": "Stimen Vaults Floor 21",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32122": {
-  "name": "Floor 22",
+  "name": "Stimen Vaults Floor 22",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32123": {
-  "name": "Floor 23",
+  "name": "Stimen Vaults Floor 23",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32124": {
-  "name": "Floor 24",
+  "name": "Stimen Vaults Floor 24",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32125": {
-  "name": "Floor 25",
+  "name": "Stimen Vaults Floor 25",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32126": {
-  "name": "Floor 26",
+  "name": "Stimen Vaults Floor 26",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32127": {
-  "name": "Floor 27",
+  "name": "Stimen Vaults Floor 27",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32128": {
-  "name": "Floor 28",
+  "name": "Stimen Vaults Floor 28",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32129": {
-  "name": "Floor 29",
+  "name": "Stimen Vaults Floor 29",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32130": {
-  "name": "Floor 30",
+  "name": "Stimen Vaults Floor 30",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32131": {
-  "name": "Floor 31",
+  "name": "Stimen Vaults Floor 31",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32132": {
-  "name": "Floor 32",
+  "name": "Stimen Vaults Floor 32",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32133": {
-  "name": "Floor 33",
+  "name": "Stimen Vaults Floor 33",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32134": {
-  "name": "Floor 34",
+  "name": "Stimen Vaults Floor 34",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32135": {
-  "name": "Floor 35",
+  "name": "Stimen Vaults Floor 35",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32136": {
-  "name": "Floor 36",
+  "name": "Stimen Vaults Floor 36",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32137": {
-  "name": "Floor 37",
+  "name": "Stimen Vaults Floor 37",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32138": {
-  "name": "Floor 38",
+  "name": "Stimen Vaults Floor 38",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32139": {
-  "name": "Floor 39",
+  "name": "Stimen Vaults Floor 39",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32140": {
-  "name": "Floor 40",
+  "name": "Stimen Vaults Floor 40",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32141": {
-  "name": "Floor 41",
+  "name": "Stimen Vaults Floor 41",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32142": {
-  "name": "Floor 42",
+  "name": "Stimen Vaults Floor 42",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32143": {
-  "name": "Floor 43",
+  "name": "Stimen Vaults Floor 43",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32144": {
-  "name": "Floor 44",
+  "name": "Stimen Vaults Floor 44",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32145": {
-  "name": "Floor 45",
+  "name": "Stimen Vaults Floor 45",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32146": {
-  "name": "Floor 46",
+  "name": "Stimen Vaults Floor 46",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32147": {
-  "name": "Floor 47",
+  "name": "Stimen Vaults Floor 47",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32148": {
-  "name": "Floor 48",
+  "name": "Stimen Vaults Floor 48",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32149": {
-  "name": "Floor 49",
+  "name": "Stimen Vaults Floor 49",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32150": {
-  "name": "Floor 50",
+  "name": "Stimen Vaults Floor 50",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32151": {
-  "name": "Floor 51",
+  "name": "Stimen Vaults Floor 51",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32152": {
-  "name": "Floor 52",
+  "name": "Stimen Vaults Floor 52",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32153": {
-  "name": "Floor 53",
+  "name": "Stimen Vaults Floor 53",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32154": {
-  "name": "Floor 54",
+  "name": "Stimen Vaults Floor 54",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32155": {
-  "name": "Floor 55",
+  "name": "Stimen Vaults Floor 55",
   "file": "dng_twr_002",
   "resId": 51
  },
  "32156": {
-  "name": "Floor 56",
+  "name": "Stimen Vaults Floor 56",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32157": {
-  "name": "Floor 57",
+  "name": "Stimen Vaults Floor 57",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32158": {
-  "name": "Floor 58",
+  "name": "Stimen Vaults Floor 58",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32159": {
-  "name": "Floor 59",
+  "name": "Stimen Vaults Floor 59",
   "file": "dng_twr_001",
   "resId": 50
  },
  "32160": {
-  "name": "Floor 60",
+  "name": "Stimen Vaults Floor 60",
   "file": "dng_twr_002",
   "resId": 51
  },
- "40001": {
-  "name": "Homestead House",
-  "file": "community_house_interior_001",
-  "resId": 40001
+ "33101": {
+  "name": "Stimen Vaults Floor 1",
+  "file": "dng_twr_001",
+  "resId": 50
  },
- "171001": {
-  "name": "Isolated Island",
-  "file": "home_system_guidetask",
-  "resId": 171001
+ "33102": {
+  "name": "Stimen Vaults Floor 2",
+  "file": "dng_twr_001",
+  "resId": 50
  },
  "60000": {
   "name": "Track! The Deep-Sea Fish Shadow",
@@ -3048,5 +3258,305 @@
   "name": "Raging Sea Finale",
   "file": "fld001_05_underwater",
   "resId": 75
+ },
+ "33103": {
+  "name": "Stimen Vaults Floor 3",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "40001": {
+  "name": "Homestead House",
+  "file": "community_house_interior_001",
+  "resId": 40001
+ },
+ "33104": {
+  "name": "Stimen Vaults Floor 4",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "171001": {
+  "name": "Isolated Island",
+  "file": "home_system_guidetask",
+  "resId": 171001
+ },
+ "33105": {
+  "name": "Stimen Vaults Floor 5",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33106": {
+  "name": "Stimen Vaults Floor 6",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33107": {
+  "name": "Stimen Vaults Floor 7",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33108": {
+  "name": "Stimen Vaults Floor 8",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33109": {
+  "name": "Stimen Vaults Floor 9",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33110": {
+  "name": "Stimen Vaults Floor 10",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33111": {
+  "name": "Stimen Vaults Floor 11",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33112": {
+  "name": "Stimen Vaults Floor 12",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33113": {
+  "name": "Stimen Vaults Floor 13",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33114": {
+  "name": "Stimen Vaults Floor 14",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33115": {
+  "name": "Stimen Vaults Floor 15",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33116": {
+  "name": "Stimen Vaults Floor 16",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33117": {
+  "name": "Stimen Vaults Floor 17",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33118": {
+  "name": "Stimen Vaults Floor 18",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33119": {
+  "name": "Stimen Vaults Floor 19",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33120": {
+  "name": "Stimen Vaults Floor 20",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33121": {
+  "name": "Stimen Vaults Floor 21",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33122": {
+  "name": "Stimen Vaults Floor 22",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33123": {
+  "name": "Stimen Vaults Floor 23",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33124": {
+  "name": "Stimen Vaults Floor 24",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33125": {
+  "name": "Stimen Vaults Floor 25",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33126": {
+  "name": "Stimen Vaults Floor 26",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33127": {
+  "name": "Stimen Vaults Floor 27",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33128": {
+  "name": "Stimen Vaults Floor 28",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33129": {
+  "name": "Stimen Vaults Floor 29",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33130": {
+  "name": "Stimen Vaults Floor 30",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33131": {
+  "name": "Stimen Vaults Floor 31",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33132": {
+  "name": "Stimen Vaults Floor 32",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33133": {
+  "name": "Stimen Vaults Floor 33",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33134": {
+  "name": "Stimen Vaults Floor 34",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33135": {
+  "name": "Stimen Vaults Floor 35",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33136": {
+  "name": "Stimen Vaults Floor 36",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33137": {
+  "name": "Stimen Vaults Floor 37",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33138": {
+  "name": "Stimen Vaults Floor 38",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33139": {
+  "name": "Stimen Vaults Floor 39",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33140": {
+  "name": "Stimen Vaults Floor 40",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33141": {
+  "name": "Stimen Vaults Floor 41",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33142": {
+  "name": "Stimen Vaults Floor 42",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33143": {
+  "name": "Stimen Vaults Floor 43",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33144": {
+  "name": "Stimen Vaults Floor 44",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33145": {
+  "name": "Stimen Vaults Floor 45",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33146": {
+  "name": "Stimen Vaults Floor 46",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33147": {
+  "name": "Stimen Vaults Floor 47",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33148": {
+  "name": "Stimen Vaults Floor 48",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33149": {
+  "name": "Stimen Vaults Floor 49",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33150": {
+  "name": "Stimen Vaults Floor 50",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33151": {
+  "name": "Stimen Vaults Floor 51",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33152": {
+  "name": "Stimen Vaults Floor 52",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33153": {
+  "name": "Stimen Vaults Floor 53",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33154": {
+  "name": "Stimen Vaults Floor 54",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33155": {
+  "name": "Stimen Vaults Floor 55",
+  "file": "dng_twr_002",
+  "resId": 51
+ },
+ "33156": {
+  "name": "Stimen Vaults Floor 56",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33157": {
+  "name": "Stimen Vaults Floor 57",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33158": {
+  "name": "Stimen Vaults Floor 58",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33159": {
+  "name": "Stimen Vaults Floor 59",
+  "file": "dng_twr_001",
+  "resId": 50
+ },
+ "33160": {
+  "name": "Stimen Vaults Floor 60",
+  "file": "dng_twr_002",
+  "resId": 51
  }
 }
