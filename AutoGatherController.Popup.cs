@@ -1,7 +1,8 @@
 namespace Stellar.AutoGather;
 
-// Auto-dismiss the daily monthly-card / reward popup so a long AFK gathering session isn't interrupted. Direct
-// port of StellarAutoFishingPlugin's Plugin.Fishing.cs CheckMonthlyCardInterrupt (proven in-game). Unlike fishing
+// Auto-dismiss the daily monthly-card / reward popup so a long AFK gathering session isn't interrupted. Port
+// of StellarAutoFishingPlugin's Plugin.Fishing.cs CheckMonthlyCardInterrupt (proven in-game); both now also send
+// the monthly card's "seen" ack before closing so it stops re-showing every login. Unlike fishing
 // (which toggles its automation off), this is an INTERNAL pause that auto-resumes — the feature stays enabled.
 // ⚠️ The Lua sentinel global is '_ag_popup' (NOT fishing's '_pf_monthly') so the two plugins don't collide in the
 // same client. All Lua pcall-wrapped, main thread.
@@ -35,7 +36,21 @@ internal sealed partial class AutoGatherController
         _state = GState.Seeking;
         _targetUuid = 0;
 
-        _services.Lua.DoString("pcall(function() if (Z.UIMgr):IsActive('monthly_reward_card_window') then (Z.UIMgr):CloseView('monthly_reward_card_window') end if (Z.UIMgr):IsActive('com_rewards_window') then (Z.UIMgr):CloseView('com_rewards_window') end end)");
+        // The monthly card reward is already server-granted; the popup is display-only. But closing it without "Get"
+        // never sends the server's "seen" ack (tipsClicked stays CanShow), so it re-appeared every login. Fire the
+        // same ack the Get button does (vm:AsyncClickMonthlyCardTips, in a coroutine like the game's own VM code;
+        // ignoreError=true → no error toast) — monthly card window only, once per detection. ⚠️ The ';' before
+        // (Z.UIMgr) is load-bearing: without it Lua parses "end) (Z.UIMgr)" as a call on pcall's result.
+        _services.Lua.DoString("pcall(function() " +
+            "if (Z.UIMgr):IsActive('monthly_reward_card_window') then " +
+                "pcall(function() local vm=Z.VMMgr.GetVM('monthly_reward_card') " +
+                    "if vm and vm.AsyncClickMonthlyCardTips then Z.CoroUtil.create_coro_xpcall(function() " +
+                        "local cs=Z.CancelSource.Rent() vm:AsyncClickMonthlyCardTips(cs:CreateToken(),true) cs:Recycle() " +
+                    "end)() end end) " +
+                ";(Z.UIMgr):CloseView('monthly_reward_card_window') " +
+            "end " +
+            "if (Z.UIMgr):IsActive('com_rewards_window') then (Z.UIMgr):CloseView('com_rewards_window') end " +
+        "end)");
 
         _popupResumeAt = now + 1.5;
         SetStatus(_loc.T("ag.status.popupPaused"), "popup");
