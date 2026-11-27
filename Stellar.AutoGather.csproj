@@ -10,7 +10,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RootNamespace>Stellar.AutoGather</RootNamespace>
     <AssemblyName>Stellar.AutoGather</AssemblyName>
-    <Version>1.2.1</Version>
+    <Version>1.2.2</Version>
     <Deterministic>true</Deterministic>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
